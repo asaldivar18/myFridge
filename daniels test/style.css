@@ -35,6 +35,7 @@ body{
    overflow: hidden;
    width: 10%;
    margin:auto;
+   margin-top: 2vh;
  }
 
  #log1 {
@@ -106,7 +107,19 @@ background-size: cover;
     text-decoration: none;
 }
 
-.btn:hover {
-  color: #40A7B1;
-  text-decoration: none;
+#log:hover {
+  background-color: #40A7B1;
+}
+
+#log1:hover {
+  background-color: #40A7B1;
+}
+
+.btn.signup {
+  background-color: #2B777E;
+  color:white;
+}
+
+.btn.signup:hover {
+  background-color: #40A7B1;
 }
