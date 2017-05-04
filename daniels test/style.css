@@ -29,6 +29,17 @@ body{
  #log {
    background-color: #2B777E;
    color: white;
+   display: block;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   width: 10%;
+   margin:auto;
+ }
+
+ #log1 {
+   background-color: #2B777E;
+   color: white;
  }
 
 h1 {
@@ -52,10 +63,14 @@ h3 {
 #newacc {
   float: left;
   margin-left: 50px;
-  margin-top: 50px;
   font-size: 20px;
+}
 
-
+#newacc1 {
+  float: left;
+  margin-left: 50px;
+  margin-top: 45px;
+  font-size: 20px;
 }
 
 #marleft {
@@ -76,4 +91,22 @@ body {
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+}
+
+#signup {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.title:hover {
+    color: #40A7B1;
+    text-decoration: none;
+}
+
+.btn:hover {
+  color: #40A7B1;
+  text-decoration: none;
 }
