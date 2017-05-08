@@ -16,12 +16,12 @@ ul {
 
 li{
   vertical-align: middle;
-  float: left;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 20px;
 }
 
 li a{
+  float: left;
   display: block;
   color: #333;
   text-align: center;
@@ -35,12 +35,28 @@ li a:hover{
 }
 
 body {
-  background: url("../daniels test/images/board.jpeg") no-repeat center center fixed;
+  /*background: url("../daniels test/images/board.jpeg") no-repeat center center fixed;*/
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-td {
+.search-input {
+  float: right;
+  width: 50%;
+  height: 3vh;
+}
+.fa-times{
+  color: red;
+}
+.fa-plus-circle{
+  color: green;
+}
+.fa-bars{
+  color: #2b777e;
+}
+h1{
+  text-align: center;
 }
