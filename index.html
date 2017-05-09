@@ -5,7 +5,6 @@
         <title>myFridge</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style/styles.css"/>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Import and configure the Firebase SDK -->
         <!-- These scripts are made available when the app is served or deployed on Firebase Hosting
@@ -62,17 +61,14 @@
 <<<<<<< HEAD
     <body>
       <section class="container">
-        <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
-
-
-
+        <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Fridge</a></li>
+          <li><a href="index.html">Profile</a></li>
+          <li><a href="index.html">Contact Us</a></li>
+        </ul>
+      </nav>
         <h1>My Fridge</h1>
         <div id="myFridge" class="tab-pane fade in active">
         <table class="table">
@@ -101,12 +97,39 @@
                 </div>
               </div>
             </td>
-            <td>
-              <a style="float:right;text-decoration:none;" class="w3-button w3-large w3-circle w3-large w3-ripple w3-red">-</a>
-            </td>
+            <td><button class="button btn btn-default">remove</button></td>
             <tr>
+            </tr>
+            <td>a</td>
+            <td>a</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                  Fresh
+                </div>
+              </td>
+            <td><button class="button btn btn-default">remove</button></td>
+            <tr>
+            </tr>
+            <td>a</td>
+            <td>a</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                  Fresh
+                </div>
+              </td>
+            <td><button class="button btn btn-default">remove</button></td>
+            <tr>
+              <tr>
+                <td><button class="button btn btn-default">Add Item</button><td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
           </tbody>
         </table>
+<<<<<<< HEAD
 
         <button type="button" class="btn btn-default" >
         </button>
@@ -159,6 +182,8 @@
       </table>
       <a href=""><i class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
 >>>>>>> 986aa8daa08fa7dc47f2b1ddb4f756711282e2b2
+=======
+>>>>>>> parent of 823d18c... idk
       </div>
       <!--<form>
         <label for "name">Name of item</label>
@@ -176,6 +201,8 @@
           <option value="Frozen">Frozen</option>
           <option value="Dry">Other</option>
         </select>
+        <label for"date">Storing Date</label>
+        <input type="date" class="form-control"></input>
         <label for"date">Expiry Date</label>
 =======
         <label for "quantity">Quantity</label>
