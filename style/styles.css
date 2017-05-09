@@ -60,3 +60,23 @@ font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 h1{
   text-align: center;
 }
+.form{
+  font-size: 20px;
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 100%;
+}
+.input_field{
+  margin-bottom: 10px;
+  width: 100%;
+}
+.form1{
+  font-size: 20px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+}
