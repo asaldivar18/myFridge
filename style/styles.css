@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*  background-color: #333;
+*/
+}
+
+li {
+  vertical-align: middle;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+}
+
+li a {
+  float: left;
+  display: block;
+  color: #2b777e;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #15373a;
+  text-decoration: none;
+}
+
+body {
+  /*background: url("../daniels test/images/board.jpeg") no-repeat center center fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.search-input {
+  float: right;
+  width: 50%;
+  height: 3vh;
+}
+
+.fa-times {
+  color: red;
+}
+
+.fa-plus-circle {
+  color: green;
+}
+
+.fa-bars {
+  color: #2b777e;
+}
+
+.fa-pencil {
+  color: black;
+}
+
+.fa-sign-out {
+  color: #2b777e;
+}
+
+.fa-sign-out:hover {
+  color: #15373a;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  font-size: 20px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+}
+
+.input_field {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form1 {
+  font-size: 20px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+}
+
+.logo {
+  width: 25%;
+}
+
+#showcaselogin {
+  background-image: url("../images/board.jpeg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  vertical-align: middle;
+  text-align: center;
+  height: 500px;
+}
+
+.intro{
+  text-align: center;
+}
