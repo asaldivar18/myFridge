@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
- ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -8,33 +8,33 @@
 */
 }
 
-li{
+li {
   vertical-align: middle;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 20px;
 }
 
-li a{
+li a {
   float: left;
   display: block;
-  color: #333;
+  color: #2b777e;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-li a:hover{
-  color: #40a7b1;
+li a:hover {
+  color: #15373a;
   text-decoration: none;
 }
 
 body {
   /*background: url("../daniels test/images/board.jpeg") no-repeat center center fixed;*/
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .search-input {
@@ -42,31 +42,50 @@ font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   width: 50%;
   height: 3vh;
 }
-.fa-times{
+
+.fa-times {
   color: red;
 }
-.fa-plus-circle{
+
+.fa-plus-circle {
   color: green;
 }
-.fa-bars{
+
+.fa-bars {
   color: #2b777e;
 }
-h1{
+
+.fa-pencil {
+  color: black;
+}
+
+.fa-sign-out {
+  color: #2b777e;
+}
+
+.fa-sign-out:hover {
+  color: #15373a;
+}
+
+h1 {
   text-align: center;
 }
-.form{
+
+.form {
   font-size: 20px;
-	text-align: center;
-	left: 0;
-	right: 0;
-	margin: auto;
-	width: 100%;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
 }
-.input_field{
+
+.input_field {
   margin-bottom: 10px;
   width: 100%;
 }
-.form1{
+
+.form1 {
   font-size: 20px;
   text-align: center;
   left: 0;
@@ -74,118 +93,22 @@ h1{
   margin: auto;
   width: 50%;
 }
-<<<<<<< HEAD
-.logo{
+
+.logo {
   width: 25%;
 }
 
-=======
->>>>>>> 1de0e4c70ea251551dd2b1aa2edce4d4d32dc464
-
-#showcaselogin{
+#showcaselogin {
   background-image: url("../images/board.jpeg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
   vertical-align: middle;
   text-align: center;
-  height:500px;
-}
-@import url(http://fonts.googleapis.com/css?family=Roboto);
-
-/****** LOGIN MODAL ******/
-.loginmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family: roboto;
+  height: 500px;
 }
 
-.loginmodal-container h1 {
+.intro{
   text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
-}
-
-.loginmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.loginmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
-  margin-bottom: 10px;
-  -webkit-appearance: none;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  border-top: 1px solid #c0c0c0;
-  /* border-radius: 2px; */
-  padding: 0 8px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-.loginmodal-container input[type=text]:hover, input[type=password]:hover {
-  border: 1px solid #b9b9b9;
-  border-top: 1px solid #a0a0a0;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.loginmodal {
-  text-align: center;
-  font-size: 14px;
-  font-family: 'Arial', sans-serif;
-  font-weight: 700;
-  height: 36px;
-  padding: 0 8px;
-/* border-radius: 3px; */
-/* -webkit-user-select: none;
-  user-select: none; */
-}
-
-.loginmodal-submit {
-  /* border: 1px solid #3079ed; */
-  border: 0px;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color: #4d90fe;
-  padding: 17px 0px;
-  font-family: roboto;
-  font-size: 14px;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
-}
-
-.loginmodal-submit:hover {
-  /* border: 1px solid #2f5bb7; */
-  border: 0px;
-  text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
-}
-
-.loginmodal-container a {
-  text-decoration: none;
-  color: #666;
-  font-weight: 400;
-  text-align: center;
-  display: inline-block;
-  opacity: 0.6;
-  transition: opacity ease 0.5s;
-}
-
-.login-help{
-  font-size: 12px;
 }
