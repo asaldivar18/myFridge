@@ -16,7 +16,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </script>
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
 </head>
 
@@ -46,14 +45,37 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
       </ul>
-      <a style="float:right;"href="login.html">
+      <a style="float:right;" href="login.html">
         <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
       </a>
     </div>
     <h1>My Profile</h1>
-    <div class="profilepic">
 
-    </div>
+    <div id="profilepic" class="col-md-4">
+      <img class="profile" src="images/flake.png" alt="Profile Picture" />
+      <h2 id="username">Adrian</h2>
+      <h3 id="rank">Food Padawan</h3>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+        </div>0
+      </div>
+      <button class="btn" id="edit"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></button>
+      </div>
+<div class="col-md-1">
+</div>
+
+      <div id="feed" class="col-md-7">
+        <h1>Feed</h1>
+        <div id="feedcontent">
+        <ul>
+          <br />
+        </ul>
+  </div>
+      </div>
+    </section>
+      <footer>
+        myFridge 2017 &copy;
+      </footer>
 </body>
 
 </html>
