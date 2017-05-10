@@ -45,6 +45,7 @@
     </div>
     <div id="showcaselogin">
       <section id="center">
+<<<<<<< HEAD
         <img class="hidden-xs" src="images/logo.png" alt="My Fridge" />
         <img class="visible-xs flake" src="images/flake.png" alt="My Fridge" />
 
@@ -74,6 +75,48 @@
             </div>
           </div>
         </div>
+=======
+        <img src="images/logo.png" alt="My Fridge" width="100%"/><p>Food waste reduction application</p>
+        <button class="btn">Google Sign In</button>
+      </section>
+
+  </div>
+</section>
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyAivtwKsYOVkBxknHjMhbTIkjMj0MhSPdM",
+  authDomain: "myfridge-ff976.firebaseapp.com",
+  databaseURL: "https://myfridge-ff976.firebaseio.com",
+  projectId: "myfridge-ff976",
+  storageBucket: "myfridge-ff976.appspot.com",
+  messagingSenderId: "1076830760594"
+};
+$("document").ready(function(){
+firebase.initializeApp(config);
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().signInWithRedirect(provider);
+firebase.auth().getRedirectResult().then(function(result) {
+if (result.credential) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // ...
+}
+// The signed-in user info.
+var user = result.user;
+}).catch(function(error) {
+// Handle Errors here.
+var errorCode = error.code;
+var errorMessage = error.message;
+// The email of the user's account used.
+var email = error.email;
+// The firebase.auth.AuthCredential type that was used.
+var credential = error.credential;
+// ...
+});
+});
+
+>>>>>>> b82f08218e74ccccce4cc71271e2ea2b330a3524
 
     </div>
     </section>
