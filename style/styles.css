@@ -120,6 +120,7 @@ h1 {
   margin: auto;
   border: solid 1px;
   border-color: gray;
+  background-color: white;
 }
 
 #username {
