@@ -57,7 +57,16 @@ body {
 }
 
 .fa-pencil {
+  color: white;
+}
+#editpencil{
   color: black;
+}
+#editbutton{
+  background-color: #2b777e;
+}
+#editbutton:hover{
+  background-color: #40a7b1;
 }
 
 .fa-sign-out {
@@ -127,12 +136,17 @@ h1 {
 
 #rank {
   text-align: center;
+  margin-top: 30px;
 }
 
 #feed {
-  border: solid 3px;
-  height: 402px;
+
+  border: solid 2px;
+  border-color: gray;
+  height: 350px;
   padding: 3px;
+  margin-top: 32px;
+
 }
 
 #edit {
@@ -161,6 +175,29 @@ footer {
   color: white;
   background-color: #2B777E;
 }
+
+
+#feedtitle{
+  background-color: #2B777E;
+  color: white;
+  text-align: center;
+  margin-top: -1px;
+}
+.title{
+  color: #2B777E;
+
+}
+.submitform{
+  background-color: #2B777E;
+  color: white;
+  transition: .5s;
+}
+
+.submitform:hover{
+  color: white;
+  background-color: #40a7b1;
+}
+
 
 
 /** LOGIN MODAL **/
@@ -260,6 +297,8 @@ footer {
 }
 #loginbutton{
   background-color: #2B777E;
+  margin: auto;
+  transition:.5s;
 }
 #loginbutton:hover{
   background-color: #40a7b1;
@@ -279,6 +318,16 @@ footer {
   width: 50%;
   margin: auto;
   display: block;
+}
+
+#myButton{
+  background-color: #a50000;
+  margin-top: 5px;
+  transition:.5s;
+}
+
+#myButton:hover{
+  background-color: #ff0000;
 }
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
