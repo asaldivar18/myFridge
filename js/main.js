@@ -4,34 +4,56 @@
  */
  var gButton = document.getElementById("myButton");
 
+
 /**
- * Function called when clicking the Login With Google/logout button
+ * getItem
+ * method when add item form button pressed.
  */
+function getItem(){
+  var name = document.getElementById("name").value;
+  var quantity = document.getElementById("quantity").value;
+  var dateTo = new Date();
+  dateTo = document.getElementById("dateto").value;
+  writeUserData(name,quantity,dateTo.toString());
+}
+
+/**
+ * writeUserData
+ * pushes JSON object into firebase database.
+ */
+function writeUserData(name, quantity, health) {
+    firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      firebase.database().ref('Fridge/'+ user.uid).push({
+        name: name,
+        quantity:quantity,
+        health:health,
+      });
+    } else {
+      toggleSignIn();
+    }
+  });
+}
+
+ /**
+  * Sign In/Sign Out
+  * Function called when clicking the Login With Google/logout button
+  */
 function toggleSignIn() {
   if (!firebase.auth().currentUser) {
-    // [START createprovider]
     var provider = new firebase.auth.GoogleAuthProvider();
-    // [END createprovider]
-    // [START addscopes]
     provider.addScope('https://www.googleapis.com/auth/plus.login');
-    // [END addscopes]
-    // [START signin]
     firebase.auth().signInWithRedirect(provider);
-    // [END signin]
   } else {
-    // [START signout]
     firebase.auth().signOut();
     window.location.href = "index.html";
-    // [END signout]
   }
-  // [START_EXCLUDE]
-  // [END_EXCLUDE]
 }
-// [END buttoncallback]
 
-
-// Firebase Connect
-//Initializes Firebase Application
+/**
+ * Firebase Connect
+ * Initializes Firebase Application
+ */
 function fbConn() {
   var config = {
     apiKey: "AIzaSyAivtwKsYOVkBxknHjMhbTIkjMj0MhSPdM",
@@ -46,14 +68,12 @@ function fbConn() {
 
 // Result from Redirect auth flow.
 function getToken() {
-  // [START getidptoken]
   firebase.auth().getRedirectResult().then(function(result) {
     if (result.credential) {
       // google token @see Google API
       window.location.href = "index.html";
       var token = result.credential.accessToken;
     } else {
-      // [END_EXCLUDE]
     }
     // The signed-in user info.
     var user = result.user;
@@ -61,11 +81,8 @@ function getToken() {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // The email of the user's account used.
     var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    // [START_EXCLUDE]
     if (errorCode === 'auth/account-exists-with-different-credential') {
       alert('You have already signed up with a different auth provider for that email.');
       // If you are using multiple auth providers on your app you should handle linking
@@ -73,13 +90,11 @@ function getToken() {
     } else {
       console.error(error);
     }
-    // [END_EXCLUDE]
   });
 }
 
 // Listening for auth state changes.
 function getAuthState() {
-  // [START authstatelistener]
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -94,24 +109,17 @@ function getAuthState() {
 
       document.getElementById("myButton").innerText = "Continue";
 
-
     } else {
       // User is signed out.
-      // [START_EXCLUDE]
-      // [END_EXCLUDE]
     }
-    // [START_EXCLUDE]
-    // [END_EXCLUDE]
   });
-  // [END authstatelistener]
 }
 
 /**
- * initApp handles FireBase connections:
- *
+ * initApp
+ * FireBase setup
  */
 function initApp() {
-
   fbConn();
   getToken();
   getAuthState();
