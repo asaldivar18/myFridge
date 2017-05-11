@@ -17,11 +17,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script src="js/main.js"></script>
 </head>
 
-<body>
+<body style="  background-color: rgba(99, 221, 227, 0.1);">
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> develop
   <section class="container">
     <div class="hidden-xs">
       <ul>
@@ -31,7 +36,7 @@
         <li><a href="affiliate.html">Affiliate Apps</a></li>
         <li style="float:right;">
           <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i id="signout" onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
@@ -47,7 +52,7 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
       </ul>
-      <a style="float:right;"href="login.html">
+      <a style="float:right;" href="login.html">
         <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
       </a>
     </div>
@@ -58,7 +63,6 @@
     <div id="myFridge" class="tab-pane fade in active">
       <table class="table">
         <div class="col-xs-2">
-
           <thead>
             <tr>
               <th>Item</th>
@@ -116,33 +120,47 @@
           </tbody>
           </div>
       </table>
+
       <a><i id="add" class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
       </div>
-      <form id="forms">
-        <label for "name">Name of item</label>
-        <input type="name" class="form-control" id="name">
-        </div>
-        <label for "quantity">Quantity</label>
-        <input type="number" class="form-control"></input>
-        <label for "date">Expiry Date</label>
-        <input type="date" class="form-control"></input>
-        </br>
-        <button id="submit" class="button btn btn-toolbar">Add</button>
+      <div id="itemform" class="form-style-8">
+        <h2> Add Your Item</h2>
+      <form>
+        <input type="text" name="itemName" placeholder="Enter Item Name" required id="name"></input>
+        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity #" required></input>
+        <input type="date" name="expiryDate" id="dateto" placeholder="Expiry Date"></input>
+        <input id="submit" type="button" onclick="getItem()" value="Add Item"></input>
+        <input id="cancel" type="button" value="Cancel"></input>
+      </form>
     </div>
-    </form>
+      </div>
+    </br>
+    </br>
+  </br>
+  </br>
+
   </section>
+  <footer>
+    Copyright &copy; 2017 by myFridge. All Rights Reserved.
+  </footer>
   <script>
-    $("#forms").hide();
 
-    $("#add").on("click", function() {
-      $("#forms").show();
-      $("#add").hide();
-    })
+        $("#itemform").hide();
 
-    $("#submit").on("click", function() {
-      $("#forms").hide();
-      $("#add").show();
-    })
+        $("#add").on("click", function() {
+          $("#itemform").show(1000);
+          $("#myFridge").hide(1000);
+        })
+
+        $("#cancel").on("click", function() {
+          $("#itemform").hide(1000);
+          $("#myFridge").show(1000);
+        })
+        $("#submit").on("click", function() {
+          $("#itemform").hide(1000);
+          $("#myFridge").show(1000);
+        })
+
   </script>
 </body>
 
