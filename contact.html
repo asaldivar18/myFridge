@@ -14,7 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
 </head>
 
@@ -22,9 +22,15 @@
   <section class="container">
     <div class="hidden-xs">
       <ul>
-        <li><a href="index.html">Fridge</a></li>
-        <li><a href="index.html">Profile</a></li>
+        <li><a href="index.html">myFridge</a></li>
+        <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="affiliate.html">Affiliate Apps</a></li>
+        <li style="float:right;">
+          <a href="login.html">
+            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -36,10 +42,14 @@
         <li><a href="index.html">Fridge</a></li>
         <li><a href="index.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="affiliate.html">Affiliate Apps</a></li>
       </ul>
+      <a style="float:right;"href="login.html">
+        <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
+      </a>
     </div>
 
-    <h1 class="hidden-xs">Contact</h1><br />
+    <h1>Contact</h1><br />
     <table class="form hidden-lg">
         <tr>
             <td><input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" /></td>
@@ -75,7 +85,10 @@
             <td><input class="btn" type="submit" value="Submit" /></td>
         </tr>
     </table>
-
+  </section>
+    <footer>
+      myFridge 2017 &copy;
+    </footer>
 </body>
 
 </html>
