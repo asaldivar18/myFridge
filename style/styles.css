@@ -263,6 +263,7 @@ footer {
 }
 #loginbutton{
   background-color: #2B777E;
+  transition:.5s;
 }
 #loginbutton:hover{
   background-color: #40a7b1;
@@ -283,6 +284,16 @@ footer {
   margin: auto;
   display: block;
 }
+
+#myButton{
+  background-color: #ff0000;
+  margin-top: 5px;
+  transition:.5s;
+}
+
+#myButton:hover{
+  background-color: #A9A9A9;
+
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
