@@ -118,7 +118,8 @@ h1 {
   width: 200px;
   display: block;
   margin: auto;
-  border: solid 2px;
+  border: solid 1px;
+  border-color: gray;
 }
 
 #username {
@@ -130,7 +131,8 @@ h1 {
 }
 
 #feed {
-  border: solid 3px;
+  border: solid 2px;
+  border-color: gray;
   height: 402px;
   padding: 3px;
 }

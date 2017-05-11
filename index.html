@@ -21,7 +21,7 @@
   <script src="js/main.js"></script>
 </head>
 
-<body style="  background-color: rgba(99, 221, 227, 0.1);">
+<body>
 
 
   <section class="container">
@@ -49,7 +49,7 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
       </ul>
-      <a style="float:right;"href="login.html">
+      <a style="float:right;" href="login.html">
         <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
       </a>
     </div>
@@ -73,19 +73,20 @@
         </div>
         <div class="col-xs-10">
           <tbody>
-            <td>bananana</td>
-            <td>a</td>
-            <td>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                  Fresh
+            <tr>
+              <td>bananana</td>
+              <td>a</td>
+              <td>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                    Fresh
+                  </div>
                 </div>
-              </div>
-            </td>
-            <div class="remove">
-              <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
               </td>
-            </div>
+              <div class="remove">
+                <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+                </td>
+              </div>
             </tr>
             <td>a</td>
             <td>a</td>
@@ -94,6 +95,7 @@
                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
                   Fresh
                 </div>
+              </div>
             </td>
             <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
               <tr>
@@ -105,32 +107,36 @@
                   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
                     Fresh
                   </div>
+                </div>
               </td>
-              <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+            </td>
+            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+              <tr>
                 <tr>
-                  <tr>
+                  <td>
                     <td>
-                      <td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                  </tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </td>
+                  </td>
+                </tr>
+              </tr>
+            </td>
           </tbody>
-          </div>
+        </div>
       </table>
       <a><i id="add" class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
-      </div>
-      <form id="forms">
-        <label for "name">Name of item</label>
-        <input type="name" class="form-control" id="name">
-        </div>
-        <label for "quantity">Quantity</label>
-        <input type="number" class="form-control"></input>
-        <label for "date">Expiry Date</label>
-        <input type="date" class="form-control"></input>
-        </br>
-        <button id="submit" class="button btn btn-toolbar">Add</button>
     </div>
+    <form id="forms">
+      <label for "name">Name of item</label>
+      <input type="name" class="form-control" id="name">
+      <label for "quantity">Quantity</label>
+      <input type="number" class="form-control"></input>
+      <label for "date">Expiry Date</label>
+      <input type="date" class="form-control"></input>
+      <br />
+      <button id="submit" class="button btn btn-toolbar">Add</button>
     </form>
   </section>
   <footer>
