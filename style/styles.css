@@ -281,7 +281,6 @@ footer {
   margin: auto;
   display: block;
 }
-<<<<<<< HEAD
 
 #myButton{
   background-color: #ff0000;
@@ -291,7 +290,7 @@ footer {
 
 #myButton:hover{
   background-color: #A9A9A9;
-=======
+
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
@@ -363,5 +362,4 @@ footer {
 .form-style-8 input[type="submit"]:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
->>>>>>> develop
 }
