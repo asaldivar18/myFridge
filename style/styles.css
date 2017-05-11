@@ -118,9 +118,7 @@ h1 {
   width: 200px;
   display: block;
   margin: auto;
-  border: solid 1px;
-  border-color: gray;
-  background-color: white;
+  border: solid 2px;
 }
 
 #username {
@@ -132,8 +130,7 @@ h1 {
 }
 
 #feed {
-  border: solid 2px;
-  border-color: gray;
+  border: solid 3px;
   height: 402px;
   padding: 3px;
 }
@@ -263,7 +260,6 @@ footer {
 }
 #loginbutton{
   background-color: #2B777E;
-  transition:.5s;
 }
 #loginbutton:hover{
   background-color: #40a7b1;
@@ -284,19 +280,8 @@ footer {
   margin: auto;
   display: block;
 }
-
-#myButton{
-  background-color: #ff0000;
-  margin-top: 5px;
-  transition:.5s;
-}
-
-#myButton:hover{
-  background-color: #A9A9A9;
-
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
-    width: 500px;
     padding: 30px;
     background: #FFFFFF;
     margin: 50px auto;
