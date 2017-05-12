@@ -81,7 +81,7 @@
                 </div>
               </td>
               <div class="remove">
-                <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+                <td align="right"><a><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
                 </td>
               </div>
             </tr>
@@ -94,7 +94,7 @@
                 </div>
               </div>
             </td>
-            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+            <td align="right"><a><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
               <tr>
               </tr>
               <td>a</td>
@@ -107,7 +107,7 @@
                 </div>
               </td>
             </td>
-            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+            <td align="right"><a><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
               <tr>
                 <tr>
                   <td>
@@ -160,6 +160,11 @@
     $("#submit").on("click", function() {
       $("#itemform").hide(1000);
       $("#myFridge").show(1000);
+    })
+
+    $("#editpencil").on("click", function() {
+      $("#itemform").show(1000);
+      $("#myFridge").hide(1000);
     })
   </script>
 </body>
