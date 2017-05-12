@@ -22,6 +22,13 @@ function getItem() {
   readUserData();
 }
 
+function edit(){
+
+}
+
+/**
+ * Creates new dom element of all items of Fridge.
+ */
 function readUserData() {
   var user = firebase.auth().currentUser;
   var ref = firebase.database().ref('Fridge/'+user.uid).orderByKey();
