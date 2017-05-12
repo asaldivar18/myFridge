@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Import and configure the Firebase SDK -->
   <!-- These scripts are made available when the app is served or deployed on Firebase Hosting
-        <script src="/__/firebase/3.9.0/firebase-app.js"></script>
-        <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
-        <script src="/__/firebase/init.js"></script>-->
+<script src="/__/firebase/3.9.0/firebase-app.js"></script>
+<script src="/__/firebase/3.9.0/firebase-auth.js"></script>
+<script src="/__/firebase/init.js"></script>-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -18,7 +18,7 @@
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
 </head>
 
-<body>
+<body style="  background-color: rgba(99, 221, 227, 0.1);">
   <section class="container">
     <div class="hidden-xs">
       <ul>
@@ -26,7 +26,7 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li style="float:right;">
+        <li class="signout">
           <a href="login.html">
             <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
@@ -35,8 +35,8 @@
     </div>
 
     <div class="dropdown visible-xs">
-      <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i>
-
+      <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+        <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
       </a>
       <ul class="dropdown-menu">
         <li><a href="index.html">Fridge</a></li>
@@ -53,56 +53,49 @@
     </div>
     <div class="container-fluid">
       <div class="container">
-        <hr style = 'background-color:#000000; border-width:0; color:#000000; height:2px; lineheight:0; display: inline-block; width:100%;' />
+        <hr class="bighr" />
         <div class="col-sm-12 text-center" id="section-two-city-title">
-          <img src="https://overcooked.ca/public/assets/images/overcooked-logo.svg" alt="overcooked" align="middle"></img>
-
+          <img src="images/overcooked.svg" alt="overcooked" align="middle"></img>
           <img src="https://overcooked.ca/public/assets/icons/city.svg" alt="">
-
-          <h1 class="font-light" style="padding-top: 15px;">
-              Reducing Waste In <span class="font-bold">Metro</span> Vancouver
-            </h1>
+          <h1 class="font-light pt15">
+            Reducing Waste In <span class="font-bold">Metro</span> Vancouver
+          </h1>
         </div>
-
         <div class="col-sm-12 text-center">
-
           <div class="col-sm-2 col-sm-offset-2">
             <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
             <hr class="hr-divider"> Helps the local economy
           </div>
-
           <div class="col-sm-2">
             <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
             <hr class="hr-divider"> Protects the environment
           </div>
-
           <div class="col-sm-2">
             <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
             <hr class="hr-divider"> Creates a better future
           </div>
-
           <div class="col-sm-2">
             <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
             <hr class="hr-divider"> Easily Give Away Food
           </div>
           <section class="container-fluid">
-            <hr style = 'background-color:#000000; border-width:0; color:#000000; height:2px; lineheight:0; display: inline-block; width:100%;' />
-          <div class="col-sm-12 text-center" id="section-two-city-title" style="padding-bottom:100px">
-            <div class="col-sm-6">
-            <h1>Pheonix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
-            <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
-          </div>
-          <div class="col-sm-6 text-center">
-          </br></br>
-            <img class="col-sm-12" src="images/preservit.png" width="100%"></img>
-            <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
-          </div>
-          </div>
+            <hr class="bighr"/>
+            <div class="col-sm-12 text-center pb100" id="section-two-city-title">
+              <div class="col-sm-6">
+                <h1>Pheonix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
+                <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
+              </div>
+              <div class="col-sm-6 text-center">
+                </br>
+                </br>
+                <img class="col-sm-12" src="images/preservit.png" width="100%"></img>
+                <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
+              </div>
+            </div>
+          </section>
           </br>
-          </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 

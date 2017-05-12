@@ -28,8 +28,6 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li style="float:right;">
-        </li>
       </ul>
     </div>
 
@@ -58,30 +56,30 @@
           </a>
         </button><br />
 
-        <button class="btn" id="myButton"onclick="toggleSignIn()" style="color:white;text-decoration: none;">Sign In with Google </button>
+        <button class="btn" id="myButton" onclick="toggleSignIn()" style="color:white;text-decoration: none;">Sign In with Google </button>
+      </section>
+      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+              <input type="text" name="user" placeholder="Username">
+              <input id="p1" type="password" name="pass" placeholder="Password">
+              <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
 
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-          <div class="modal-dialog">
-            <div class="loginmodal-container">
-              <h1>Login to Your Account</h1><br>
-              <form>
-                <input type="text" name="user" placeholder="Username">
-                <input id="p1" type="password" name="pass" placeholder="Password">
-                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-              </form>
-
-              <div class="login-help">
-                <a href="signup.html">Sign up</a> | <a href="#">Forgot Password</a>
-              </div>
+            <div class="login-help">
+              <a href="signup.html">Sign up</a> | <a href="#">Forgot Password</a>
             </div>
           </div>
         </div>
+      </div>
 
     </div>
-    </section>
-    <footer>
-      Copyright &copy; 2017 by myFridge. All Rights Reserved.
-    </footer>
+  </section>
+  <footer>
+    Copyright &copy; 2017 by myFridge. All Rights Reserved.
+  </footer>
 </body>
 
 </html>

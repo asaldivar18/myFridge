@@ -21,7 +21,7 @@
   <script src="js/main.js"></script>
 </head>
 
-<body style="  background-color: rgba(99, 221, 227, 0.1);">
+<body style="background-color: rgba(99, 221, 227, 0.1);">
   <section class="container">
     <div class="hidden-xs">
       <ul>
@@ -29,7 +29,7 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li style="float:right;">
+        <li class="signout">
           <a href="login.html">
             <i id="signout" onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
@@ -47,7 +47,7 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
       </ul>
-      <a style="float:right;" href="login.html">
+      <a class="signout" href="login.html">
         <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
       </a>
     </div>
@@ -81,7 +81,7 @@
                 </div>
               </td>
               <div class="remove">
-                <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i style="margin-left:5px"class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+                <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
                 </td>
               </div>
             </tr>
@@ -94,7 +94,7 @@
                 </div>
               </div>
             </td>
-            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i style="margin-left:5px"class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
               <tr>
               </tr>
               <td>a</td>
@@ -107,7 +107,7 @@
                 </div>
               </td>
             </td>
-            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i style="margin-left:5px"class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
+            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" id="editpencil" aria-hidden="true"> |</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
               <tr>
                 <tr>
                   <td>
@@ -126,9 +126,9 @@
 
       <a><i id="add" class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
 
-      </div>
-      <div id="itemform" class="form-style-8">
-        <h2> Add Your Item</h2>
+    </div>
+    <div id="itemform" class="form-style-8">
+      <h2> Add Your Item</h2>
       <form>
         <input type="text" name="itemName" placeholder="Enter Item Name" required id="name"></input>
         <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity #" required></input>
@@ -137,33 +137,30 @@
         <input id="cancel" type="button" value="Cancel"></input>
       </form>
     </div>
-      </div>
     </br>
     </br>
-  </br>
-  </br>
+    </br>
+    </br>
   </section>
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
   <script>
+    $("#itemform").hide();
 
-        $("#itemform").hide();
+    $("#add").on("click", function() {
+      $("#itemform").show(1000);
+      $("#myFridge").hide(1000);
+    })
 
-        $("#add").on("click", function() {
-          $("#itemform").show(1000);
-          $("#myFridge").hide(1000);
-        })
-
-        $("#cancel").on("click", function() {
-          $("#itemform").hide(1000);
-          $("#myFridge").show(1000);
-        })
-        $("#submit").on("click", function() {
-          $("#itemform").hide(1000);
-          $("#myFridge").show(1000);
-        })
-
+    $("#cancel").on("click", function() {
+      $("#itemform").hide(1000);
+      $("#myFridge").show(1000);
+    })
+    $("#submit").on("click", function() {
+      $("#itemform").hide(1000);
+      $("#myFridge").show(1000);
+    })
   </script>
 </body>
 
