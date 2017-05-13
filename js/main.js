@@ -2,32 +2,64 @@
  * myFridge JS
  *
  */
- var gButton = document.getElementById("myButton");
+var gButton = document.getElementById("myButton");
 
 
 /**
  * getItem
  * method when add item form button pressed.
  */
-function getItem(){
+function getItem() {
   var name = document.getElementById("name").value;
   var quantity = document.getElementById("quantity").value;
   var dateTo = new Date();
   dateTo = document.getElementById("dateto").value;
-  writeUserData(name,quantity,dateTo.toString());
+  writeUserData(name, quantity, dateTo.toString());
+  var node = document.getElementById("itembody");
+  while (node.firstChild){
+    node.removeChild(node.firstChild)
+  }
+  readUserData();
 }
+
+function edit(){
+
+}
+
+/**
+ * Creates new dom element of all items of Fridge.
+ */
+function readUserData() {
+  var user = firebase.auth().currentUser;
+  var ref = firebase.database().ref('Fridge/'+user.uid).orderByKey();
+  ref.once("value")
+    .then(function(snapshot){
+      snapshot.forEach(function(childSnapshot){
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        var tr = document.createElement('tr');
+        var html = "<td>"+childData.name+"</td><td>"+childData.quantity+"</td><div class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">Fresh</div>/div></td><div class=\"remove\"><td align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil\" aria-hidden=\"true\"> |</i><i class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
+        tr.innerHTML = html;
+        document.getElementById("itembody").appendChild(tr);
+      })
+    })
+}
+
+
+
+
 
 /**
  * writeUserData
  * pushes JSON object into firebase database.
  */
 function writeUserData(name, quantity, health) {
-    firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      firebase.database().ref('Fridge/'+ user.uid).push({
+      firebase.database().ref('Fridge/' + user.uid).push({
         name: name,
-        quantity:quantity,
-        health:health,
+        quantity: quantity,
+        health: health,
       });
     } else {
       toggleSignIn();
@@ -35,10 +67,10 @@ function writeUserData(name, quantity, health) {
   });
 }
 
- /**
-  * Sign In/Sign Out
-  * Function called when clicking the Login With Google/logout button
-  */
+/**
+ * Sign In/Sign Out
+ * Function called when clicking the Login With Google/logout button
+ */
 function toggleSignIn() {
   if (!firebase.auth().currentUser) {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -73,8 +105,7 @@ function getToken() {
       // google token @see Google API
       window.location.href = "index.html";
       var token = result.credential.accessToken;
-    } else {
-    }
+    } else {}
     // The signed-in user info.
     var user = result.user;
   }).catch(function(error) {
