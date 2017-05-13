@@ -145,6 +145,7 @@ h1 {
   vertical-align: middle;
   text-align: center;
   height: 500px;
+  margin-top: 15px;
 }
 
 .intro {
@@ -438,4 +439,63 @@ footer {
 .form-style-8 input[type="button"]:hover, .form-style-8 input[type="submit"]:hover {
   background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
   background-color: #34CACA;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+
+#menu {
+  position: absolute;
+  width: 200px;
+  margin: 5px 0 0 -50px;
+  padding: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: rgba(43, 119, 126, 0.8);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+  color: white;
+}
+
+#menu li:hover {
+  padding: 10px 0;
+  font-size: 22px;
+  color: black;
+}
+
+#menu a {
+  text-decoration: none;
+}
+
+#menuToggle input:checked ~ ul {
+  transform: scale(1.0, 1.0);
+  opacity: 0.9;
 }
