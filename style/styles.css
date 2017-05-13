@@ -202,6 +202,9 @@ footer {
   color: white;
   background-color: #2B777E;
 }
+#additemtitle{
+  color: white;
+}
 
 #feedtitle {
   background-color: #2B777E;
@@ -209,7 +212,9 @@ footer {
   text-align: center;
   margin-top: -1px;
 }
-
+#overcooked{
+  width: 100%;
+}
 .title {
   color: #2B777E;
 }
