@@ -172,7 +172,7 @@ h1 {
   border-color: gray;
   height: 350px;
   padding: 3px;
-  margin-top: 32px;
+  margin-top: 15px;
   background-color: white;
 }
 
@@ -229,6 +229,22 @@ footer {
 .submitform:hover {
   color: white;
   background-color: #40a7b1;
+}
+
+#submit {
+  background-color:#2B777E;
+}
+
+#submit:hover {
+  background-color: #40a7b1;
+}
+
+#cancel {
+  background-color: #2B777E;
+}
+
+#cancel:hover {
+  background-color: black;
 }
 
 .loginmodal-container {
@@ -321,7 +337,7 @@ footer {
   background-color: #2B777E;
   margin: auto;
   transition: .5s;
-  width: 13%;
+  width: 148px;
 }
 
 #loginbutton:hover {
@@ -337,7 +353,7 @@ footer {
   margin-bottom: 5px;
   width: 200px;
   height: 30px;
-  font-family: roboto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .flake {
@@ -357,7 +373,7 @@ footer {
 }
 
 .form-style-8 {
-  font-family: 'Open Sans Condensed', arial, sans;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 30px;
   background: #FFFFFF;
   margin: 50px auto;
@@ -369,7 +385,7 @@ footer {
 .form-style-8 h2 {
   background: #4D4D4D;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: #797979;
   font-size: 18px;
   font-weight: 100;
@@ -407,7 +423,7 @@ footer {
   display: inline-block;
   cursor: pointer;
   color: #FFFFFF;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 14px;
   padding: 8px 18px;
   text-decoration: none;
