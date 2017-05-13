@@ -320,6 +320,7 @@ footer {
   background-color: #2B777E;
   margin: auto;
   transition: .5s;
+  width: 13%;
 }
 
 #loginbutton:hover {
