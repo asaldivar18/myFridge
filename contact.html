@@ -18,7 +18,7 @@
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
 </head>
 
-<body style="background-color:rgba(99, 221, 227, 0.1);">
+<body style="background-color: rgba(236, 236, 234, 0.5);">
   <section class="container">
     <div class="hidden-xs">
       <ul>
@@ -26,7 +26,7 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li style="float:right;">
+        <li class="signout">
           <a href="login.html">
             <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
@@ -34,23 +34,22 @@
       </ul>
     </div>
 
-    <div class="dropdown visible-xs">
-      <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i>
-
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="index.html">Fridge</a></li>
-        <li><a href="index.html">Profile</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="affiliate.html">Affiliate Apps</a></li>
-      </ul>
-      <a style="float:right;"href="login.html">
-        <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
-      </a>
+    <div class="visible-xs">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+        <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <ul id="menu">
+          <a href="index.html"><li>myFridge</li></a>
+          <a href="profile.html"><li>Profile</li></a>
+          <a href="contact.html"><li>Contact</li></a>
+          <a href="affiliate.html"><li>Affiliate Apps</li></a>
+        </ul>
+      </div>
     </div>
 
-    <h1>Contact</h1><br />
-    <table class="form hidden-lg">
+    <h1 class="title">Contact</h1><br />
+    <table class="form visible-xs">
         <tr>
             <td><input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" /></td>
         </tr>
@@ -64,7 +63,7 @@
             <td></td>
         </tr>
         <tr>
-            <td><input class="btn" type="submit" value="Submit" /></td>
+            <td><input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" /></td>
         </tr>
     </table>
 
@@ -82,7 +81,7 @@
             <td></td>
         </tr>
         <tr>
-            <td><input class="btn" type="submit" value="Submit" /></td>
+            <td><input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" /></td>
         </tr>
     </table>
   </section>
