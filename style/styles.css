@@ -145,6 +145,7 @@ h1 {
   vertical-align: middle;
   text-align: center;
   height: 500px;
+  margin-top: 15px;
 }
 
 .intro {
@@ -172,7 +173,7 @@ h1 {
   border-color: gray;
   height: 350px;
   padding: 3px;
-  margin-top: 32px;
+  margin-top: 15px;
   background-color: white;
 }
 
@@ -193,12 +194,21 @@ h1 {
   margin-left: 15px;
 }
 
+#showfridge {
+  background-color: #2B777E;
+  color: white;
+}
+
 footer {
   width: 100%;
   height: 5%;
   bottom: 0;
   position: fixed;
   text-align: center;
+  color: white;
+  background-color: #2B777E;
+}
+#additemtitle{
   color: white;
   background-color: #2B777E;
 }
@@ -209,7 +219,9 @@ footer {
   text-align: center;
   margin-top: -1px;
 }
-
+#overcooked{
+  width: 100%;
+}
 .title {
   color: #2B777E;
 }
@@ -223,6 +235,22 @@ footer {
 .submitform:hover {
   color: white;
   background-color: #40a7b1;
+}
+
+#submit {
+  background-color:#2B777E;
+}
+
+#submit:hover {
+  background-color: #40a7b1;
+}
+
+#cancel {
+  background-color: #2B777E;
+}
+
+#cancel:hover {
+  background-color: black;
 }
 
 .loginmodal-container {
@@ -315,6 +343,7 @@ footer {
   background-color: #2B777E;
   margin: auto;
   transition: .5s;
+  width: 148px;
 }
 
 #loginbutton:hover {
@@ -330,7 +359,7 @@ footer {
   margin-bottom: 5px;
   width: 200px;
   height: 30px;
-  font-family: roboto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .flake {
@@ -429,7 +458,7 @@ footer {
 }
 
 .form-style-8 {
-  font-family: 'Open Sans Condensed', arial, sans;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 30px;
   background: #FFFFFF;
   margin: 50px auto;
@@ -441,7 +470,7 @@ footer {
 .form-style-8 h2 {
   background: #4D4D4D;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: #797979;
   font-size: 18px;
   font-weight: 100;
@@ -479,7 +508,7 @@ footer {
   display: inline-block;
   cursor: pointer;
   color: #FFFFFF;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 14px;
   padding: 8px 18px;
   text-decoration: none;
@@ -489,4 +518,63 @@ footer {
 .form-style-8 input[type="button"]:hover, .form-style-8 input[type="submit"]:hover {
   background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
   background-color: #34CACA;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+
+#menu {
+  position: absolute;
+  width: 200px;
+  margin: 5px 0 0 -50px;
+  padding: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: rgba(43, 119, 126, 0.8);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+  color: white;
+}
+
+#menu li:hover {
+  padding: 10px 0;
+  font-size: 22px;
+  color: black;
+}
+
+#menu a {
+  text-decoration: none;
+}
+
+#menuToggle input:checked ~ ul {
+  transform: scale(1.0, 1.0);
+  opacity: 0.9;
 }
