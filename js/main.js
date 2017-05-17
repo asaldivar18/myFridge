@@ -84,7 +84,7 @@ function toggleSignIn() {
     firebase.auth().signInWithRedirect(provider);
   } else {
     firebase.auth().signOut();
-    window.location.href = "index.html";
+    window.location.href = "login.html";
   }
 }
 
