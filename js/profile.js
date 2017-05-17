@@ -12,11 +12,20 @@ var username = document.getElementById("username");
 var usernameVal = username.innerHTML;
 var submitbtn = document.getElementById("submitnew");
 
-firebase.auth().onAuthStateChanged(firebaseUser =>{
-  if(firebaseUser){
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    console.log(firebaseUser);
     username.innerHTML = firebaseUser.displayName;
-  }else{
-  console.log("not logged in");
+    submitbtn.addEventListener('click', e => {
+      var newuser = document.getElementById("newuser");
+      var newuserVal = newuser.value;
+      firebaseUser.updateProfile({
+        displayName: newuserVal
+      });
+      username.innerHTML = firebaseUser.displayName;
+    })
+  } else {
+    console.log("not logged in");
   }
 });
 
@@ -30,7 +39,3 @@ function toggleSignIn() {
     window.location.href = "login.html";
   }
 }
-
-submitbtn.addEventListener('click', e => {
-  
-})
