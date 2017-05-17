@@ -18,15 +18,13 @@ var user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(firebaseUser =>{
   if(firebaseUser){
     console.log(firebaseUser);
+    submit.addEventListener('click', e => {
+      firebaseUser.updateProfile({
+        displayName : uname,
+      });
+    })
+
   }else{
   console.log("not logged in");
   }
 });
-
-
-submit.addEventListener('click', e => {
-  user.updateProfile({
-    displayName : uname,
-    photoURL : photo
-  });
-})

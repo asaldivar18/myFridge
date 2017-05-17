@@ -9,29 +9,6 @@ var config = {
 firebase.initializeApp(config);
 
 
-const submit = document.getElementById("s1");
-const txtemail = document.getElementById("e1");
-const txtpwd = document.getElementById("p1");
-
-
-submit.addEventListener('click', e => {
-  const email2 = txtemail.value;
-  const pwd = txtpwd.value
-  const auth = firebase.auth();
-
-  const promise = auth.signInWithEmailAndPassword(email2, pwd);
-});
-
-firebase.auth().onAuthStateChanged(firebaseUser =>{
-  if(firebaseUser){
-    console.log(firebaseUser);
-    window.location.href = "profile.html";
-  }else{
-  console.log("not logged in");
-  }
-});
-
-
 /**
  * Sign In/Sign Out
  * Function called when clicking the Login With Google/logout button
