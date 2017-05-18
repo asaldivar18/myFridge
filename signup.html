@@ -14,6 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="js/profile.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
@@ -49,8 +50,8 @@
         <img class="visible-xs flake" src="images/flake.png" alt="My Fridge" />
 
         <div class="font-group signup">
-          <input type="text" class="inputs" placeholder="First Name" /><br />
-          <input type="text" class="inputs" placeholder="Last Name" /><br />
+          <input type="text" id="fName" class="inputs" placeholder="First Name" /><br />
+          <input type="text" id="lName" class="inputs" placeholder="Last Name" /><br />
           <input type="email" id="email" class="inputs" placeholder="Email" /><br />
           <input type="password" id="pwd" class="inputs" placeholder="Password" /><br />
           <button id="loginbutton" class="btn btn-default"><a  style="color:white; text-decoration:none;" href="profile.html">Create account </a></button>
@@ -63,7 +64,7 @@
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
-  <script>
+  <!--   <script>
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyAivtwKsYOVkBxknHjMhbTIkjMj0MhSPdM",
@@ -72,8 +73,7 @@
       projectId: "myfridge-ff976",
       storageBucket: "myfridge-ff976.appspot.com",
       messagingSenderId: "1076830760594"
-    };
-    $("document").ready(function() {
+    }; $("document").ready(function() {
       firebase.initializeApp(config);
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(provider);
@@ -96,7 +96,7 @@
         // ...
       });
     });
-  </script>
+  </script> -->
 </body>
 
 </html>
