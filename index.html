@@ -42,6 +42,7 @@
   <div id="menuToggle">
     <input type="checkbox" />
     <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+    <a class="signout" href="login.html"><i onclick="toggleSignIn()" class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
     <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
     <ul id="menu">
       <a href="index.html"><li>myFridge</li></a>
@@ -57,13 +58,13 @@
 
     <button class="button btn-default colorscheme" id="showfridge" onclick="readUserData()" style="width:100%;"><h2 id="fridgeName">Open Fridge</h2></br><p>Add items to your fridge</p></button>
     <div id="myFridge" class="tab-pane fade in active">
-      <table class="table">
+      <table id="tablefridge"class="table">
         <div class="col-xs-2">
           <thead>
             <tr>
               <th>Item</th>
               <th>Quantity</th>
-              <th>Time Remaining</th>
+              <th>Expiry Date</th>
               <th> <input class="search-input form-control" placeholder="Search"></input>
               </th>
             </tr>

@@ -76,10 +76,6 @@ body {
 }
 
 .fa-pencil {
-  color: white;
-}
-
-#editpencil {
   color: black;
 }
 
@@ -230,6 +226,42 @@ footer {
 #preservit{
   width: 100%;
   margin-bottom: 25px;
+}
+.title {
+  color: #2B777E;
+}
+
+.submitform {
+  background-color: #2B777E;
+  color: white;
+  transition: .5s;
+}
+
+.submitform:hover {
+  color: white;
+  background-color: #40a7b1;
+}
+
+#submit {
+  background-color:#2B777E;
+}
+
+#submit:hover {
+  background-color: #40a7b1;
+}
+
+#cancel {
+  background-color: #2B777E;
+}
+
+#feedtitle {
+  background-color: #2B777E;
+  color: white;
+  text-align: center;
+  margin-top: -1px;
+}
+#overcooked{
+  width: 100%;
 }
 .title {
   color: #2B777E;
@@ -586,4 +618,22 @@ footer {
 #menuToggle input:checked ~ ul {
   transform: scale(1.0, 1.0);
   opacity: 0.9;
+}
+
+.cancel-btn{
+  width: 100%;
+  display: block;
+  position: relative;
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  background-color: #2B777E;
+  padding: 15px 0px;
+  font-family: roboto;
+  font-size: 14px;
+}
+.cancel-btn:hover {
+  border: 0px;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  background-color: #40a7b1;
 }

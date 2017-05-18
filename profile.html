@@ -17,6 +17,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
 
 <body style="background-color: rgba(236, 236, 234, 0.5);">
@@ -29,7 +30,7 @@
         <li><a href="affiliate.html">Affiliate Apps</a></li>
         <li class="signout">
           <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
@@ -40,7 +41,7 @@
       <div id="menuToggle">
         <input type="checkbox" />
         <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-        <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <a class="signout"  onclick="toggleSignIn"><i  onclick="toggleSignIn()"class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
         <ul id="menu">
           <a href="index.html"><li>myFridge</li></a>
           <a href="profile.html"><li>Profile</li></a>
@@ -53,16 +54,17 @@
     <h1 class="title">My Profile</h1>
 
     <div id="profilepic" class="col-md-4">
-      <img class="profile" src="images/flake.png" alt="Profile Picture" />
-      <h2 id="username">Adrian Salvidar</h2>
+      <img class="profile" id="profilepic" src="images/flake.png" alt="Profile Picture" />
+      <h2 id="username"></h2>
       <button class="btn" id="editbutton">
-              <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i class="fa fa-pencil fa-md" aria-hidden="true"></i></a>
+              <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i id="editbtn" class="fa fa-pencil fa-md" aria-hidden="true"></i></a>
             </button>
       <h3 id="rank">Food Padawan</h3>
       <div class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:100%">
         </div>
       </div>
+
 
 
       <br />
@@ -73,15 +75,15 @@
             <h1>Edit Account Details</h1><br>
             <form>
               <p class="editform">Change username</p>
-              <input type="text" name="user" placeholder="Change username">
+              <input type="text" id="newuser" name="user" placeholder="Change username" required>
               <p class="editform">Reset password</p>
               <input id="p1" type="password" name="pass" placeholder="Password">
               <input id="p1" type="password" name="pass" placeholder="Confirm Password">
               <p class="editform">Add a new photo</p>
-              <input type="file" name="" id="camerainput1" accept="images/*" capture>
-              <input type="submit" name="submit" class="login loginmodal-submit editform" value="Update">
+              <input type="file" name="photo" id="camerainput1" accept="images/*" capture>
+              <input type="submit" id="submitnew" name="submit" class="login loginmodal-submit editform" value="Update">
             </form>
-
+            <button class="cancel-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </div>
@@ -157,6 +159,7 @@
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
+  <script src="js/profile.js"></script>
 </body>
 
 </html>
