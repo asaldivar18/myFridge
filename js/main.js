@@ -14,63 +14,100 @@ function getItem() {
   var quantity = document.getElementById("quantity").value;
   var dateTo = new Date();
   dateTo = document.getElementById("dateto").value;
-  writeUserData(name, quantity, dateTo.toString());
-  var node = document.getElementById("itembody");
-  while (node.firstChild){
-    node.removeChild(node.firstChild)
-  }
-  readUserData();
+  var newref = writeUserData(name, quantity, dateTo.toString());
+readUserData();
+
 }
 
-function edit(){
+function deleteItem(num) {
+  var deletebutton = document.getElementById('delete' + num);
+  var editpencil = document.getElementById('editpencil' + num);
+  var user = firebase.auth().currentUser;
+  var ref = firebase.database().ref('Fridge/' + user.uid)
 
+  deletebutton.addEventListener('click', function(event) {
+    itemName = document.getElementById('itemName' + num).innerHTML;
+    ref.orderByChild("name").equalTo(itemName).on("child_added", function(snapshot) {
+      var r = confirm("Are you sure you want to remove " + itemName + "?");
+      if (r == true)
+        snapshot.ref.remove();
+    })
+    ref2 = firebase.database().ref('Fridge/score/' + user.uid)
+    ref2.once('value', function(childSnapshot) {
+      try {
+        var scoreuser = childSnapshot.val().score
+        ref2.update({
+          score: scoreuser + 1
+        })
+      } catch (abc) {
+        ref2.update({
+          score: 1
+        })
+      }
+    })
+    readUserData();
+  })
+  editpencil.addEventListener('click', function(event) {
+    itemName = document.getElementById('itemName' + num).innerHTML;
+    console.log(itemName)
+  })
 }
 
 /**
  * Creates new dom element of all items of Fridge.
  */
 function readUserData() {
+  var node = document.getElementById("itembody");
+  while (node.firstChild) {
+    node.removeChild(node.firstChild)
+  }
   var user = firebase.auth().currentUser;
-  var ref = firebase.database().ref('Fridge/'+user.uid).orderByKey();
-  ref.once("value")
-    .then(function(snapshot){
-      snapshot.forEach(function(childSnapshot){
-        var key = childSnapshot.key;
-        var childData = childSnapshot.val();
-        var tr = document.createElement('tr');
-        var itemNo = 0;
-        tr.id = "itemNo"+itemNo;
-        var html = "<td id=\"itemName"+itemNo+"\">"+childData.name+"</td><td id=\""+itemNo+"\">"+childData.quantity+"</td><div class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">Fresh</div>/div></td><div class=\"remove\"><td align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil\" aria-hidden=\"true\"> |</i><i class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
-        tr.innerHTML = html;
-        document.getElementById("itembody").appendChild(tr);
-      })
+  var itemNo = 1;
+  var ref = firebase.database().ref('Fridge/' + user.uid).orderByKey();
+  ref.on("value", function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+      var tr = document.createElement('tr');
+      tr.id = "itemNo" + itemNo;
+      var html = "<td id=\"itemName" + itemNo + "\">" + childData.name + "</td><td id=\"" + itemNo + "\">" + childData.quantity + "</td><div class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">" + childData.health + "</div>/div></td><div class=\"remove\"><td align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil" + itemNo + "\" aria-hidden=\"true\"> |</i><i id=\"delete" + itemNo + "\"class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
+      tr.innerHTML = html;
+      document.getElementById("itembody").appendChild(tr);
+      deleteItem(itemNo)
+      itemNo++;
+
     })
-/*
-document.getElementById("itemno"+itemNo).addEventListener("click",function(){
-  var html = "<td><input placeholder\""+childData.name+"\"></td><td>"+childData.quantity+"</td><div class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">Fresh</div>/div></td><div class=\"remove\"><td align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil\" aria-hidden=\"true\"> |</i><i class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
-  this.innerHTML = html;
-  */
-    //document.getElementById("itemNo0").
+  })
 }
-
-
 
 /**
  * writeUserData
  * pushes JSON object into firebase database.
  */
 function writeUserData(name, quantity, health) {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      firebase.database().ref('Fridge/' + user.uid).push({
-        name: name,
-        quantity: quantity,
-        health: health,
-      });
-    } else {
-      toggleSignIn();
-    }
-  });
+  var user = firebase.auth().currentUser;
+  ref = firebase.database().ref('Fridge/' + user.uid)
+  if (user) {
+    var justPushed = ref.push({
+      name: name,
+      quantity: quantity,
+      health: health,
+    });
+    ref2 = firebase.database().ref('Fridge/score/' + user.uid)
+    ref2.once('value', function(childSnapshot) {
+      try {
+        var scoreuser = childSnapshot.val().score
+        ref2.update({
+          score: scoreuser + 1
+        })
+      } catch (vafa) {
+        ref2.update({
+          score: 1
+        })
+      }
+    })
+    return justPushed;
+  }
 }
 
 /**
@@ -146,8 +183,9 @@ function getAuthState() {
 
       document.getElementById("myButton").innerText = "Continue";
 
+
     } else {
-      toggleSignIn();
+      window.location.href = "login.html";
     }
   });
 }
