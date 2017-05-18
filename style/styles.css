@@ -216,7 +216,7 @@ footer {
   margin-top: -1px;
 }
 #overcooked{
-  width: 50%;
+  width: 100px;
 }
 
 #overcookedSM{
@@ -224,7 +224,8 @@ footer {
 }
 
 #preservit{
-  width: 100%;
+  display: block;
+  width: 2%;
   margin-bottom: 25px;
 }
 .title {
