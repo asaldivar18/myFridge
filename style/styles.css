@@ -245,6 +245,42 @@ footer {
   background-color: #2B777E;
 }
 
+#feedtitle {
+  background-color: #2B777E;
+  color: white;
+  text-align: center;
+  margin-top: -1px;
+}
+#overcooked{
+  width: 100%;
+}
+.title {
+  color: #2B777E;
+}
+
+.submitform {
+  background-color: #2B777E;
+  color: white;
+  transition: .5s;
+}
+
+.submitform:hover {
+  color: white;
+  background-color: #40a7b1;
+}
+
+#submit {
+  background-color:#2B777E;
+}
+
+#submit:hover {
+  background-color: #40a7b1;
+}
+
+#cancel {
+  background-color: #2B777E;
+}
+
 #cancel:hover {
   background-color: black;
 }
