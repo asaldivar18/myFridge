@@ -78,12 +78,12 @@
     </div>
     <div id="itemform" class="form-style-8">
       <h2 id="additemtitle"> Add Your Item</h2>
-      <form>
+      <form id="additemForm">
         <input type="text" name="itemName" placeholder="Enter Item Name" required id="name"></input>
         <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity #" required></input>
-        <input type="date" name="expiryDate" id="dateto" placeholder="Expiry Date"></input>
+        <input placeholder="Expiry Date" name="expiryDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateto">
         <input id="submit" type="button" onclick="getItem()" value="Add Item"></input>
-        <input id="cancel" type="button" value="Cancel"></input>
+        <input id="cancel"  type="button" value="Cancel"></input>
       </form>
     </div>
     </br>

@@ -96,6 +96,7 @@ function writeUserData(name, quantity, health) {
       quantity: quantity,
       health: health,
     });
+
     ref2 = firebase.database().ref('Fridge/score/' + user.uid)
     ref2.once('value', function(childSnapshot) {
       try {
@@ -109,6 +110,7 @@ function writeUserData(name, quantity, health) {
         })
       }
     })
+    $("#additemForm").reset();
     return justPushed;
   }
 }
