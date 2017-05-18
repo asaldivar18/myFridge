@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     submitbtn.addEventListener('click', e => {
       var newuser = document.getElementById("newuser");
-      var photo = document.getElementById('camerainput1');
+      var photo = document.getElementById('camera');
       var newuserVal = newuser.value;
       if(newuserVal){
       firebaseUser.updateProfile({
@@ -45,11 +45,27 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       alert('no picture here');
     }
       username.innerHTML = firebaseUser.displayName;
-    })
+    });
   } else {
     console.log("not logged in");
   }
 });
+
+function readURL(input) {
+var url = input.value;
+var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        $('#img').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+}
+else{
+     $('#img').attr('src', '/assets/no_preview.png');
+  }
+}
 
 function toggleSignIn() {
   if (!firebase.auth().currentUser) {
