@@ -14,6 +14,7 @@ function getItem() {
   var quantity = document.getElementById("quantity").value;
   var dateTo = new Date();
   dateTo = document.getElementById("dateto").value;
+
   var newref = writeUserData(name, quantity, dateTo.toString());
 readUserData();
 
@@ -80,6 +81,8 @@ function readUserData() {
   })
 }
 
+
+
 /**
  * writeUserData
  * pushes JSON object into firebase database.
@@ -121,7 +124,7 @@ function toggleSignIn() {
     firebase.auth().signInWithRedirect(provider);
   } else {
     firebase.auth().signOut();
-    window.location.href = "index.html";
+    window.location.href = "login.html";
   }
 }
 

@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -64,6 +63,9 @@
         <div class="modal-dialog">
           <div class="loginmodal-container">
             <h1>Login to Your Account</h1><br>
+              <input id="e1" type="text" name="email" placeholder="Email">
+              <input id="p1" type="password" name="pass" placeholder="Password">
+              <input id="s1" type="submit" name="login" class="login loginmodal-submit" value="Login">
             <form>
               <input type="text" name="user" placeholder="Username">
               <input id="p1" type="password" name="pass" placeholder="Password">
@@ -82,6 +84,8 @@
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
+  <script src="js/login.js"></script>
+
 </body>
 
 </html>
