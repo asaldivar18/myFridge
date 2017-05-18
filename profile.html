@@ -74,14 +74,17 @@
         <div class="modal-dialog">
           <div class="loginmodal-container">
             <h1>Edit Account Details</h1><br>
+            <form>
               <p class="editform">Change username</p>
-              <input type="text" id="newuser" name="user" placeholder="Change username">
+              <input type="text" id="newuser" name="user" placeholder="Change username" required>
               <p class="editform">Reset password</p>
               <input id="p1" type="password" name="pass" placeholder="Password">
               <input id="p1" type="password" name="pass" placeholder="Confirm Password">
               <p class="editform">Add a new photo</p>
               <input type='file' id="camera" onchange="readURL(this)" />
               <input type="submit" id="submitnew" name="submit" class="login loginmodal-submit editform" value="Update">
+            </form>
+            <button class="cancel-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </div>
@@ -89,7 +92,6 @@
     </div>
     <div class="col-md-1">
     </div>
-
 
     <div id="feed" class="col-md-7" >
       <h3 id="feedtitle">Feed</h3>

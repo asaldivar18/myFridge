@@ -29,12 +29,30 @@ resetpwd.addEventListener('click', e => {
   }, function(error) {
     console.log("Error");
   });
+
 });
 
 firebase.auth().onAuthStateChanged(firebaseUser =>{
   if(firebaseUser){
     console.log(firebaseUser);
+    window.location.href = "profile.html";
   }else{
-  console.log("Not logged in");
+  console.log("not logged in");
   }
 });
+
+
+/**
+ * Sign In/Sign Out
+ * Function called when clicking the Login With Google/logout button
+ */
+function toggleSignIn() {
+  if (!firebase.auth().currentUser) {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/plus.login');
+    firebase.auth().signInWithRedirect(provider);
+  } else {
+    firebase.auth().signOut();
+    window.location.href = "login.html";
+  }
+}

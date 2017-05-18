@@ -11,51 +11,44 @@
         <script src="/__/firebase/3.9.0/firebase-app.js"></script>
         <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
         <script src="/__/firebase/init.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
 
 <body style="background-color: rgba(236, 236, 234, 0.5);">
-    <section class="container">
-        <div class="hidden-xs">
-            <ul>
-                <li><a href="index.html">myFridge</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="affiliate.html">Affiliate Apps</a></li>
-                <li class="signout">
-                    <a href="login.html">
-                        <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+  <section class="container">
+    <div class="hidden-xs">
+      <ul>
+        <li><a href="index.html">myFridge</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="affiliate.html">Affiliate Apps</a></li>
+        <li class="signout">
+          <a href="login.html">
+            <i onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-        <div class="visible-xs">
-            <div id="menuToggle">
-                <input type="checkbox" />
-                <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-                <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
-                <ul id="menu">
-                    <a href="index.html">
-                        <li>myFridge</li>
-                    </a>
-                    <a href="profile.html">
-                        <li>Profile</li>
-                    </a>
-                    <a href="contact.html">
-                        <li>Contact</li>
-                    </a>
-                    <a href="affiliate.html">
-                        <li>Affiliate Apps</li>
-                    </a>
-                </ul>
-            </div>
-        </div>
-
+    <div class="visible-xs">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+        <a class="signout" href="login.html"><i onclick="toggleSignIn()" class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <ul id="menu">
+          <a href="index.html"><li>myFridge</li></a>
+          <a href="profile.html"><li>Profile</li></a>
+          <a href="contact.html"><li>Contact</li></a>
+          <a href="affiliate.html"><li>Affiliate Apps</li></a>
+        </ul>
+      </div>
+    </div>
         <h1 class="title">Contact</h1><br />
         <!--  <table class="form visible-xs">
         <tr>
@@ -81,7 +74,6 @@
           <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments"></textarea>
           <input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" />
         </form>
-
         <form action="mailto:someone@example.com" class="form1 hidden-xs" method="post" enctype="text/plain">
           <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" />
           <input class="input_field" name="Email" type="text" maxlength="50" placeholder="E-mail" />
@@ -89,9 +81,9 @@
           <input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" />
         </form>
     </section>
-    <footer>
-        Copyright &copy; 2017 by myFridge. All Rights Reserved.
-    </footer>
+  <footer>
+    Copyright &copy; 2017 by myFridge. All Rights Reserved.
+  </footer>
+  <script src="js/contact.js"></script>
 </body>
-
 </html>

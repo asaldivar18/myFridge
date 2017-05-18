@@ -39,14 +39,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
     if(photo.value){
       firebaseUser.updateProfile({
-        photoURL: photo.value
+        photoURL:photo.value
       });
     }else{
       alert('no picture here');
     }
       username.innerHTML = firebaseUser.displayName;
     });
-
   } else {
     console.log("not logged in");
   }
