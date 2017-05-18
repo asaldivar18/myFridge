@@ -17,11 +17,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script src="js/main.js"></script>
 </head>
 
-<body>
-
-
+<body style="background-color: rgba(236, 236, 234, 0.5);">
   <section class="container">
     <div class="hidden-xs">
       <ul>
@@ -29,123 +29,107 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li style="float:right;">
+        <li class="signout">
           <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i id="signout" onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
     </div>
 
-    <div class="dropdown visible-xs">
-      <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i>
 
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="index.html">myFridge</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="affiliate.html">Affiliate Apps</a></li>
-      </ul>
-      <a style="float:right;"href="login.html">
-        <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
-      </a>
-    </div>
+<div class="visible-xs">
+  <div id="menuToggle">
+    <input type="checkbox" />
+    <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+    <a class="signout" href="login.html"><i onclick="toggleSignIn()" class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+    <ul id="menu">
+      <a href="index.html"><li>myFridge</li></a>
+      <a href="profile.html"><li>Profile</li></a>
+      <a href="contact.html"><li>Contact</li></a>
+      <a href="affiliate.html"><li>Affiliate Apps</li></a>
+    </ul>
+  </div>
+</div>
 
     <h1 class="hidden-xs"><img class="logo" src="images/logo2.png" /></h1>
-    <h1 class="visible-xs">myFridge</h1><br />
+    <h1 class="visible-xs title">myFridge</h1><br />
 
+    <button class="button btn-default colorscheme" id="showfridge" onclick="readUserData()" style="width:100%;"><h2 id="fridgeName">Open Fridge</h2></br><p>Add items to your fridge</p></button>
     <div id="myFridge" class="tab-pane fade in active">
-      <table class="table">
+      <table id="tablefridge"class="table">
         <div class="col-xs-2">
-
           <thead>
             <tr>
               <th>Item</th>
               <th>Quantity</th>
-              <th>Time Remaining</th>
+              <th>Expiry Date</th>
               <th> <input class="search-input form-control" placeholder="Search"></input>
               </th>
             </tr>
           </thead>
         </div>
         <div class="col-xs-10">
-          <tbody>
-            <td>bananana</td>
-            <td>a</td>
-            <td>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                  Fresh
-                </div>
-              </div>
-            </td>
-            <div class="remove">
-              <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
-              </td>
-            </div>
-            </tr>
-            <td>a</td>
-            <td>a</td>
-            <td>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                  Fresh
-                </div>
-            </td>
-            <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
-              <tr>
-              </tr>
-              <td>a</td>
-              <td>a</td>
-              <td>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                    Fresh
-                  </div>
-              </td>
-              <td align="right"><a href=""><i class="fa fa-pencil fa-2x" aria-hidden="true">/</i><i class="fa fa-times  fa-2x" aria-hidden="true"></i></a>
-                <tr>
-                  <tr>
-                    <td>
-                      <td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                  </tr>
+          <tbody id="itembody">
           </tbody>
-          </div>
+        </div>
       </table>
       <a><i id="add" class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
-      </div>
-      <form id="forms">
-        <label for "name">Name of item</label>
-        <input type="name" class="form-control" id="name">
-        </div>
-        <label for "quantity">Quantity</label>
-        <input type="number" class="form-control"></input>
-        <label for "date">Expiry Date</label>
-        <input type="date" class="form-control"></input>
-        </br>
-        <button id="submit" class="button btn btn-toolbar">Add</button>
     </div>
-    </form>
+    <div id="itemform" class="form-style-8">
+      <h2 id="additemtitle"> Add Your Item</h2>
+      <form id="additemForm">
+        <input type="text" name="itemName" placeholder="Enter Item Name" required id="name"></input>
+        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity #" required></input>
+        <input placeholder="Expiry Date" name="expiryDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateto">
+        <input id="submit" type="button" onclick="getItem()" value="Add Item"></input>
+        <input id="cancel"  type="button" value="Cancel"></input>
+      </form>
+    </div>
+    </br>
+    </br>
+    </br>
+    </br>
   </section>
   <footer>
-    myFridge 2017 &copy;
+    Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
   <script>
-    $("#forms").hide();
+    $("#itemform").hide();
+    $("#myFridge").hide();
+
 
     $("#add").on("click", function() {
-      $("#forms").show();
-      $("#add").hide();
+      $("#itemform").show(1000);
+      $("#myFridge").hide(1000);
+      $("#showfridge").hide(1000)
+    })
+
+    $("#showfridge").on("click",function(){
+      $("#myFridge").show(1000);
+      $("#showfridge").prop('disabled',true);
+      document.getElementById("fridgeName").innerHTML = "Fridge Contents";
+    })
+
+    $("#cancel").on("click", function() {
+      $("#itemform").hide(1000);
+      $("#myFridge").show(1000);
+      $("#showfridge").show(1000)
     })
 
     $("#submit").on("click", function() {
-      $("#forms").hide();
-      $("#add").show();
+      $("#itemform").hide(1000);
+      $("#myFridge").show(1000);
+      $("#showfridge").show(1000)
     })
+
+    $("#editpencil").on("click", function() {
+      $("#itemform").show(1000);
+      $("#myFridge").hide(1000);
+      $("#showfridge").hide(1000)
+
+    })
+
   </script>
 </body>
 

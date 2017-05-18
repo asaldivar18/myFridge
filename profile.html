@@ -17,9 +17,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
 
-<body>
+<body style="background-color: rgba(236, 236, 234, 0.5);">
   <section class="container">
     <div class="hidden-xs">
       <ul>
@@ -27,55 +28,87 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li style="float:right;">
+        <li class="signout">
           <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
     </div>
 
-    <div class="dropdown visible-xs">
-      <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i>
 
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="index.html">myFridge</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="affiliate.html">Affiliate Apps</a></li>
-      </ul>
-      <a style="float:right;" href="login.html">
-        <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
-      </a>
+    <div class="visible-xs">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+        <a class="signout"  onclick="toggleSignIn"><i  onclick="toggleSignIn()"class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <ul id="menu">
+          <a href="index.html"><li>myFridge</li></a>
+          <a href="profile.html"><li>Profile</li></a>
+          <a href="contact.html"><li>Contact</li></a>
+          <a href="affiliate.html"><li>Affiliate Apps</li></a>
+        </ul>
+      </div>
     </div>
-    <h1>My Profile</h1>
+
+    <h1 class="title">My Profile</h1>
 
     <div id="profilepic" class="col-md-4">
-      <img class="profile" src="images/flake.png" alt="Profile Picture" />
-      <h2 id="username">Adrian</h2>
-      <h3 id="rank">Food Padawan</h3>
+      <img class="profile" id="img" src="images/flake.png" alt="your image" />
+      <!-- <img class="profile" src="images/flake.png" alt="Profile Picture" /> -->
+      <h2 id="username"></h2>
+      <button class="btn" id="editbutton">
+              <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i class="fa fa-pencil fa-md" id="editbtn" aria-hidden="true"></i></a>
+            </button>
+      <h3 id="rank"></h3>
       <div class="progress">
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-        </div>0
+        <div class="progress-bar progress-bar-striped active" id="pbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+        </div>
       </div>
-      <button class="btn" id="edit"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></button>
-      </div>
-<div class="col-md-1">
-</div>
 
-      <div id="feed" class="col-md-7">
-        <h1>Feed</h1>
-        <div id="feedcontent">
+
+
+      <br />
+
+      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Edit Account Details</h1><br>
+            <form>
+              <p class="editform">Change username</p>
+              <input type="text" id="newuser" name="user" placeholder="Change username" required>
+              <p class="editform">Reset password</p>
+              <input id="p1" type="password" name="pass" placeholder="Password">
+              <input id="p1" type="password" name="pass" placeholder="Confirm Password">
+              <p class="editform">Add a new photo</p>
+              <input type='file' id="camera" onchange="readURL(this)" />
+              <input type="submit" id="submitnew" name="submit" class="login loginmodal-submit editform" value="Update">
+            </form>
+            <button class="cancel-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-1">
+    </div>
+
+    <div id="feed" class="col-md-7" >
+      <h3 id="feedtitle">Feed</h3>
+      <div id="feedcontent">
         <ul>
+          <li>
+            Oranges
+          </li>
           <br />
         </ul>
-  </div>
       </div>
-    </section>
-      <footer>
-        myFridge 2017 &copy;
-      </footer>
+    </div>
+  </section>
+  <footer>
+    Copyright &copy; 2017 by myFridge. All Rights Reserved.
+  </footer>
+  <script src="js/profile.js"></script>
 </body>
 
 </html>
