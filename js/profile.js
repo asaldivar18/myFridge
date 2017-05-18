@@ -18,6 +18,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
     if(firebaseUser.photoURL){
       profilepic.src = firebaseUser.photoURL;
+      console.log(firebaseUser.photoURL);
+      console.log(profilepic.src);
     }
     console.log(firebaseUser);
     username.innerHTML = firebaseUser.displayName;
