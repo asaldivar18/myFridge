@@ -54,10 +54,10 @@
     <h1 class="title">My Profile</h1>
 
     <div id="profilepic" class="col-md-4">
-      <img class="profile" src="images/flake.png" alt="Profile Picture" />
+      <img class="profile" id="profilepic" src="images/flake.png" alt="Profile Picture" />
       <h2 id="username"></h2>
       <button class="btn" id="editbutton">
-              <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i class="fa fa-pencil fa-md" aria-hidden="true"></i></a>
+              <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i id="editbtn" class="fa fa-pencil fa-md" aria-hidden="true"></i></a>
             </button>
       <h3 id="rank">Food Padawan</h3>
       <div class="progress">
@@ -73,14 +73,17 @@
         <div class="modal-dialog">
           <div class="loginmodal-container">
             <h1>Edit Account Details</h1><br>
+            <form>
               <p class="editform">Change username</p>
-              <input type="text" id="newuser" name="user" placeholder="Change username">
+              <input type="text" id="newuser" name="user" placeholder="Change username" required>
               <p class="editform">Reset password</p>
               <input id="p1" type="password" name="pass" placeholder="Password">
               <input id="p1" type="password" name="pass" placeholder="Confirm Password">
               <p class="editform">Add a new photo</p>
-              <input type="file" name="" id="camerainput1" accept="images/*" capture>
+              <input type="file" name="photo" id="camerainput1" accept="images/*" capture>
               <input type="submit" id="submitnew" name="submit" class="login loginmodal-submit editform" value="Update">
+            </form>
+            <button class="cancel-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </div>

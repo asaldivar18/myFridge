@@ -11,17 +11,39 @@ firebase.initializeApp(config);
 var username = document.getElementById("username");
 var usernameVal = username.innerHTML;
 var submitbtn = document.getElementById("submitnew");
+var editbtn = document.getElementById("editbtn");
+var profilepic = document.getElementById("profilepic");
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
+    if(firebaseUser.photoURL){
+      profilepic.src = firebaseUser.photoURL;
+    }
     console.log(firebaseUser);
     username.innerHTML = firebaseUser.displayName;
-    submitbtn.addEventListener('click', e => {
+
+    editbtn.addEventListener('click', e => {
       var newuser = document.getElementById("newuser");
       var newuserVal = newuser.value;
+      newuser.value = firebaseUser.displayName;
+    })
+
+    submitbtn.addEventListener('click', e => {
+      var newuser = document.getElementById("newuser");
+      var photo = document.getElementById('camerainput1');
+      var newuserVal = newuser.value;
+      if(newuserVal){
       firebaseUser.updateProfile({
         displayName: newuserVal
       });
+    }
+    if(photo.value){
+      firebaseUser.updateProfile({
+        photoURL:photo.value
+      });
+    }else{
+      alert('no picture here');
+    }
       username.innerHTML = firebaseUser.displayName;
     })
   } else {

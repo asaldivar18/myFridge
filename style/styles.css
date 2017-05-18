@@ -495,3 +495,21 @@ footer {
   transform: scale(1.0, 1.0);
   opacity: 0.9;
 }
+
+.cancel-btn{
+  width: 100%;
+  display: block;
+  position: relative;
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  background-color: #2B777E;
+  padding: 15px 0px;
+  font-family: roboto;
+  font-size: 14px;
+}
+.cancel-btn:hover {
+  border: 0px;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  background-color: #40a7b1;
+}
