@@ -42,6 +42,7 @@
         <input type="checkbox" />
         <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
         <a class="signout"  onclick="toggleSignIn"><i  onclick="toggleSignIn()"class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
         <ul id="menu">
           <a href="index.html"><li>myFridge</li></a>
           <a href="profile.html"><li>Profile</li></a>
@@ -58,6 +59,10 @@
       <h2 id="username"></h2>
       <button class="btn" id="editbutton">
               <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i id="editbtn" class="fa fa-pencil fa-md" aria-hidden="true"></i></a>
+      <img class="profile" src="images/flake.png" alt="Profile Picture" />
+      <h2 id="username">Adrian Salvidar</h2>
+      <button class="btn" id="editbutton">
+              <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i class="fa fa-pencil fa-md" aria-hidden="true"></i></a>
             </button>
       <h3 id="rank">Food Padawan</h3>
       <div class="progress">
@@ -84,6 +89,24 @@
               <input type="submit" id="submitnew" name="submit" class="login loginmodal-submit editform" value="Update">
             </form>
             <button class="cancel-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+
+      <br />
+
+      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Edit Account Details</h1><br>
+            <form>
+              <p class="editform">Change username</p>
+              <input type="text" name="user" placeholder="Change username">
+              <p class="editform">Reset password</p>
+              <input id="p1" type="password" name="pass" placeholder="Password">
+              <input id="p1" type="password" name="pass" placeholder="Confirm Password">
+              <p class="editform">Add a new photo</p>
+              <input type="file" name="" id="camerainput1" accept="images/*" capture>
+              <input type="submit" name="submit" class="login loginmodal-submit editform" value="Update">
+            </form>
+
           </div>
         </div>
       </div>
