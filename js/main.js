@@ -41,12 +41,17 @@ function deleteItem(num) {
   var ref = firebase.database().ref('Fridge/' + user.uid)
 
   deletebutton.addEventListener('click', function(event) {
-    itemName = document.getElementById('itemName' + num).innerHTML;
-    ref.orderByChild("name").equalTo(itemName).on("child_added", function(snapshot) {
-      var r = confirm("Are you sure you want to remove " + itemName + "?");
-      if (r == true)
-        snapshot.ref.remove();
-    })
+    var itemName = document.getElementById("itemName" + num)
+    var ref = firebase.database().ref('Fridge/'+user.uid+'/'+list[num-1])
+    var r = confirm("Are you sure you want to remove " + itemName + "?");
+    if (r == true){
+      ref.update({
+        removed:true
+      })
+    } else {
+      return 0
+    }
+
     ref2 = firebase.database().ref('Fridge/score/' + user.uid)
     ref2.once('value', function(childSnapshot) {
       try {
@@ -83,9 +88,22 @@ function deleteItem(num) {
     name_DOM.innerHTML = "<input type=\"text\" name=\"itemName\"value=\""+itemName+"\"  placeholder=\""+itemName+"\" required id=\"newName\"></input>";
     quantity_DOM.innerHTML ="<input type=\"number\" name=\"itemName\" value=\""+parseInt(quantity)+"\"placeholder=\""+quantity+"\" required id=\"newQuantity\"></input>";
     expiry_DOM.innerHTML =  "<input placeholder=\""+expiryDate+"\" value=\""+expiryDate+"\" name=\"expiryDate\" type=\"text\" onfocus=\"(this.type='date\')\" onblur=\"(this.type='text\')\" id=\"newDateto\">"
-    buttons_DOM.innerHTML = "<input type=\"button\" onclick=\"updateItem()\" value=\"Confirm\"></input>"
+    buttons_DOM.innerHTML = "<input id=\"edit"+num+"\" type=\"button\"  value=\"Confirm\"></input>"
 
-    updateItem(num)
+    document.getElementById("edit"+num).addEventListener('click', function(event){
+      var user = firebase.auth().currentUser;
+      var ref = firebase.database().ref('Fridge/'+user.uid+'/'+list[num-1])
+      var itemName = name_DOM.children[0].value
+      var quantity = quantity_DOM.children[0].value;
+      var dateTo = new Date();
+      dateTo = expiry_DOM.children[0].value;
+      ref.update({
+        name: itemName,
+        quantity: quantity,
+        health: dateTo,
+      })
+      readUserData()
+    })
 
   })
 }
@@ -95,11 +113,14 @@ function updateItem(num){
   var quantity = document.getElementById("newQuantity").value;
   var dateTo = new Date();
   var user = firebase.auth().currentUser;
-  var ref = firebase.database().ref('Fridge/' + user.uid)
-
+  var ref = firebase.database().ref('Fridge/' + user.uid+"/"+list[num-1])
   dateTo = document.getElementById("newDateto").value;
-  console.log(list[num])
-
+  ref.update({
+    name: itemName,
+    quantity: quantity,
+    health: dateTo
+  })
+  readUserData()
 
 }
 
@@ -114,28 +135,33 @@ function removeChild(dom_element){
  * Creates new dom element of all items of Fridge.
  */
 function readUserData() {
+  list.length = 0
   var node = document.getElementById("itembody");
   while (node.firstChild) {
     node.removeChild(node.firstChild)
   }
   var user = firebase.auth().currentUser;
   var itemNo = 1;
-  var ref = firebase.database().ref('Fridge/' + user.uid).orderByKey();
+  var cmp = "name" //document.getElementById("DANIELTODO").value
+  var ref = firebase.database().ref('Fridge/' + user.uid).orderByChild("health");
   ref.on("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      var tr = document.createElement('tr');
-      tr.id = "itemNo" + itemNo;
-      var html = "<td id=\"itemName" + itemNo + "\">" + childData.name + "</td><td id=\"" + itemNo + "\">" + childData.quantity + " " + childData.type
-      html +=  "</td><td><div id=\"itemDate" + itemNo+ "\" class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">" + childData.health
-      html += "</div>/div></td><div class=\"remove\"><td id=\"buttons"+itemNo+"\"align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil" + itemNo
-      html += "\" aria-hidden=\"true\"> |</i><i id=\"delete" + itemNo + "\"class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
-      tr.innerHTML = html;
-      document.getElementById("itembody").appendChild(tr);
-      deleteItem(itemNo)
-      itemNo++;
-      list.push(key)
+      if(!childData.removed){
+        var tr = document.createElement('tr');
+        tr.id = "itemNo" + itemNo;
+        var html = "<td id=\"itemName" + itemNo + "\">" + childData.name + "</td><td id=\"" + itemNo + "\">" + childData.quantity + " " + childData.type
+        html +=  "</td><td><div id=\"itemDate" + itemNo+ "\" class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">" + childData.health
+        html += "</div>/div></td><div class=\"remove\"><td id=\"buttons"+itemNo+"\"align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil" + itemNo
+        html += "\" aria-hidden=\"true\"> |</i><i id=\"delete" + itemNo + "\"class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
+        tr.innerHTML = html;
+        document.getElementById("itembody").appendChild(tr);
+        deleteItem(itemNo)
+        itemNo++;
+        list.push(key)
+      }
+
     })
   })
 }
@@ -154,6 +180,7 @@ function writeUserData(name, quantity, unit, health) {
       name: name,
       quantity: quantity,
       type: unit,
+      removed: false,
       health: health,
     });
 

@@ -39,6 +39,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         $("#rank").text("Food Grand Master (GM)")
       }
     })
+    alert("hello")
+    document.getElementById(score).text = "Food Score: " + scoreuser + "!"
 
 
 
