@@ -38,9 +38,29 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       } else if(scoreuser >70){
         $("#rank").text("Food Grand Master (GM)")
       }
+      $("#score").text("Food Score: " + scoreuser + "!")
+
     })
-    alert("hello")
-    document.getElementById(score).text = "Food Score: " + scoreuser + "!"
+
+    var ref = firebase.database().ref('Fridge/' + firebaseUser.uid).orderByChild("health");
+    ref.on("value", function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        var list = document.getElementById("feedList")
+        var list2 = document.getElementById("historyList")
+        if(!childData.removed){
+          var li = document.createElement('li');
+          li.innerHTML = childData.name + "\t+1 point!"
+          list.appendChild(li)
+        } else {
+          var li = document.createElement('li');
+          li.innerHTML = childData.name + "\t+2 points!"
+          list2.appendChild(li)
+        }
+      })
+    })
+
 
 
 
