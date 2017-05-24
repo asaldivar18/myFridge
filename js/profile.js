@@ -8,9 +8,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-const submitbtn = document.getElementById("submitnew");
-const editbtn = document.getElementById("editbtn");
-
 var username = document.getElementById("username");
 var password = document.getElementById("p1");
 var imgSrc = document.getElementById("img");
@@ -51,6 +48,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     })
 
+	
+	
     var ref = firebase.database().ref('Fridge/' + firebaseUser.uid).orderByChild("health");
     ref.on("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
