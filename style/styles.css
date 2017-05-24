@@ -216,17 +216,14 @@ footer {
   margin-top: -1px;
 }
 #overcooked{
-  width: 50%;
+  width: 100px;
 }
 
 #overcookedSM{
   width: 100%;
 }
 
-#preservit{
-  width: 100%;
-  margin-bottom: 25px;
-}
+
 .title {
   color: #2B777E;
 }
@@ -418,6 +415,10 @@ footer {
 
 #myButton:hover{
   background-color: #A9A9A9;
+}
+
+#header,#showcaselogin{
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
