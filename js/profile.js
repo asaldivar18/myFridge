@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       } else if(scoreuser >70){
         $("#rank").text("Food Grand Master (GM)")
       }
-      $("#score").text("Food Score: " + scoreuser + "!")
+      $("#score").text("Food Score: " + scoreuser)
 
     })
 
@@ -95,8 +95,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       });
     }
       username.innerHTML = firebaseUser.displayName;
-
-
 
     });
 

@@ -43,7 +43,7 @@ function deleteItem(num) {
   deletebutton.addEventListener('click', function(event) {
     var itemName = document.getElementById("itemName" + num)
     var ref = firebase.database().ref('Fridge/'+user.uid+'/'+list[num-1])
-    var r = confirm("Are you sure you want to remove " + itemName + "?");
+    var r = confirm("Are you sure you want to remove " + itemName.innerHTML + "?");
     if (r == true){
       ref.update({
         removed:true
@@ -72,7 +72,7 @@ function deleteItem(num) {
   editpencil.addEventListener('click', function(event) {
     itemName = document.getElementById('itemName' + num).innerHTML;
     quantity = document.getElementById(num).innerHTML;
-    expiryDate = document.getElementById("itemDate" +num).children[0].innerHTML
+    expiryDate = document.getElementById("itemDate" + num).children[0].innerHTML
 
     var name_DOM = document.getElementById('itemName' + num)
     var quantity_DOM = document.getElementById(num)
@@ -269,3 +269,24 @@ function initApp() {
 window.onload = function() {
   initApp();
 };
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
