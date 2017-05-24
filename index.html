@@ -24,16 +24,17 @@
         <script src="/__/firebase/3.9.0/firebase-app.js"></script>
         <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
         <script src="/__/firebase/init.js"></script>-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body style="background-color: rgba(236, 236, 234, 0.5);">
+
   <div id="fb-root"></div>
   <script>
     (function(d, s, id) {
@@ -139,6 +140,7 @@
           <option value="oz">ounces</option>
           <option vlaue="lbs">pounds</option>
         </select>
+
         <input placeholder="Expiry Date" name="expiryDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateto">
         <input id="submit" type="submit" onclick="getItem()" value="Add Item"></input>
         <input id="cancel" type="button" value="Cancel"></input>
@@ -181,17 +183,24 @@
       $("#showfridge").show(1000)
     })
 
+        $("#cancel").on("click", function() {
+            $("#itemform").hide(1000);
+            $("#myFridge").show(1000);
+            $("#showfridge").show(1000)
+        })
 
-    $("#editpencil").on("click", function() {
-      $("#itemform").show(1000);
-      $("#myFridge").hide(1000);
-      $("#showfridge").hide(1000)
-    })
 
-    $("#additemForm").submit(function(e) {
-      e.preventDefault();
-    });
-  </script>
+        $("#editpencil").on("click", function() {
+            $("#itemform").show(1000);
+            $("#myFridge").hide(1000);
+            $("#showfridge").hide(1000)
+        })
+
+        $("#additemForm").submit(function(e) {
+            e.preventDefault();
+        });
+    </script>
+
 </body>
 
 </html>

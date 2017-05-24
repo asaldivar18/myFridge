@@ -81,7 +81,7 @@
               <input id="p1" type="password" name="pass" placeholder="Password">
               <input id="p1" type="password" name="pass" placeholder="Confirm Password">
               <p class="editform">Add a new photo</p>
-              <input type='file' id="camera" onchange="readURL(this)" />
+              <input type='file' id="camera"/>
               <input type="submit" id="submitnew" name="submit" class="login loginmodal-submit editform" value="Update">
             </form>
             <button class="cancel-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
@@ -98,11 +98,13 @@
       <div id="feedcontent">
       <section id="currentFridge">
         <h3>Currently In Fridge</h3>
+        <hr>
         <ul id="feedList">
         </ul>
       </section>
       <section id="fridgeHistory">
         <h3>Item History</h3>
+        <hr>
         <ul id="historyList">
         </ul>
       </section>
