@@ -20,6 +20,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
     if (firebaseUser.photoURL) {
       profilepic.src = firebaseUser.photoURL;
+      console.log(firebaseUser.photoURL);
+      console.log(profilepic.src);
     }
     ref2 = firebase.database().ref('Fridge/score/' + firebaseUser.uid)
     ref2.once('value', function(childSnapshot) {
