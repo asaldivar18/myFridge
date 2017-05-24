@@ -42,6 +42,7 @@ firebase.auth().onAuthStateChanged(firebaseUser =>{
   }
   });
 
+
 /**
  * Sign In/Sign Out
  * Function called when clicking the Login With Google/logout button
