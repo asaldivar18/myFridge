@@ -27,6 +27,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     if (firebaseUser.photoURL) {
       profilepic.src = firebaseUser.photoURL;
+      console.log(firebaseUser.photoURL);
+      console.log(profilepic.src);
     }
     ref2 = firebase.database().ref('Fridge/score/' + firebaseUser.uid)
     ref2.once('value', function(childSnapshot) {
@@ -58,11 +60,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         var list2 = document.getElementById("historyList")
         if(!childData.removed){
           var li = document.createElement('li');
-          li.innerHTML = childData.name + "\t+1 point!"
+          li.innerHTML = childData.name + "+1 point"
           list.appendChild(li)
         } else {
           var li = document.createElement('li');
-          li.innerHTML = childData.name + "\t+2 points!"
+          li.innerHTML = childData.name + "+2 points"
           list2.appendChild(li)
         }
       })
@@ -83,17 +85,21 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     submitbtn.addEventListener('click', e => {
       var newuser = document.getElementById("newuser");
       var newuserVal = newuser.value;
-      var photo = document.getElementById("camera") ;
-      if(newuserVal){
-      firebaseUser.updateProfile({
-        displayName: newuserVal,
-        photoURL: photo.value
-      });
-    } if(photo.value){
-      firebaseUser.updateProfile({
-        photoURL:photo.value
-      });
-    }
+
+      var storageRef = firebase.storage().ref(firebaseUser.uid + '/profilepic/'+photo.name)
+
+
+      if (newuserVal) {
+        firebaseUser.updateProfile({
+          displayName: newuserVal
+        });
+      }
+      if (photo.value) {
+        var task = storageRef.put(photo.value)
+        firebaseUser.updateProfile({
+          photoURL: photo.value
+        });
+      }
       username.innerHTML = firebaseUser.displayName;
 
     });
