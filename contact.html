@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  <title>Contact Us</title>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="style/styles.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Import and configure the Firebase SDK -->
-  <!-- These scripts are made available when the app is served or deployed on Firebase Hosting
+    <title>Contact Us</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import and configure the Firebase SDK -->
+    <!-- These scripts are made available when the app is served or deployed on Firebase Hosting
         <script src="/__/firebase/3.9.0/firebase-app.js"></script>
         <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
         <script src="/__/firebase/init.js"></script>-->
@@ -16,6 +16,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
 
 <body style="background-color: rgba(236, 236, 234, 0.5);">
@@ -28,7 +29,7 @@
         <li><a href="affiliate.html">Affiliate Apps</a></li>
         <li class="signout">
           <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i onclick="toggleSignIn()" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
@@ -38,7 +39,7 @@
       <div id="menuToggle">
         <input type="checkbox" />
         <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-        <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <a class="signout" href="login.html"><i onclick="toggleSignIn()" class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
         <ul id="menu">
           <a href="index.html"><li>myFridge</li></a>
           <a href="profile.html"><li>Profile</li></a>
@@ -47,9 +48,8 @@
         </ul>
       </div>
     </div>
-
-    <h1 class="title">Contact</h1><br />
-    <table class="form visible-xs">
+        <h1 class="title">Contact</h1><br />
+        <!--  <table class="form visible-xs">
         <tr>
             <td><input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" /></td>
         </tr>
@@ -65,29 +65,24 @@
         <tr>
             <td><input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" /></td>
         </tr>
-    </table>
+    </table> -->
 
-    <table class="form1 hidden-xs">
-        <tr>
-            <td><input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" /></td>
-        </tr>
-        <tr>
-            <td><input class="input_field" name="Email" type="text" maxlength="50" placeholder="E-mail"/></td>
-        </tr>
-        <tr>
-            <td><textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments"></textarea></td>
-        </tr>
-        <tr>
-            <td></td>
-        </tr>
-        <tr>
-            <td><input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" /></td>
-        </tr>
-    </table>
-  </section>
+        <form action="mailto:someone@example.com" class="visible-xs" method="post" enctype="text/plain">
+          <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" />
+          <input class="input_field" name="Email" type="text" maxlength="50" placeholder="E-mail" />
+          <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments"></textarea>
+          <input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" />
+        </form>
+        <form action="mailto:someone@example.com" class="form1 hidden-xs" method="post" enctype="text/plain">
+          <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" />
+          <input class="input_field" name="Email" type="text" maxlength="50" placeholder="E-mail" />
+          <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments"></textarea>
+          <input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" />
+        </form>
+    </section>
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
+  <script src="js/contact.js"></script>
 </body>
-
 </html>

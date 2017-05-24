@@ -5,6 +5,7 @@
   <title>myFridge</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="style/styles.css" />
+  <meta name="description" content="TODO"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/flake.png">
   <!-- Import and configure the Firebase SDK -->
@@ -42,7 +43,7 @@
   <div id="menuToggle">
     <input type="checkbox" />
     <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-    <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+    <a class="signout" href="login.html"><i onclick="toggleSignIn()" class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
     <ul id="menu">
       <a href="index.html"><li>myFridge</li></a>
       <a href="profile.html"><li>Profile</li></a>
@@ -51,19 +52,19 @@
     </ul>
   </div>
 </div>
-
+    <div id="header">
     <h1 class="hidden-xs"><img class="logo" src="images/logo2.png" /></h1>
     <h1 class="visible-xs title">myFridge</h1><br />
-
-    <button class="button btn-default colorscheme" id="showfridge" onclick="readUserData()" style="width:100%;"><h2 id="fridgeName">Open Fridge</h2></br><p>Add items to your fridge</p></button>
-    <div id="myFridge" class="tab-pane fade in active">
-      <table class="table">
+  </div>
+    <div id="myFridge" class="table-responsive">
+      <button class="button btn-default colorscheme" id="showfridge" onclick="readUserData()" style="width:100%;"><h2 id="fridgeName">Open Fridge</h2></br><p>Add items to your fridge</p></button>
+      <table id="tablefridge"class="table">
         <div class="col-xs-2">
           <thead>
             <tr>
               <th>Item</th>
               <th>Quantity</th>
-              <th>Time Remaining</th>
+              <th>Expiry Date</th>
               <th> <input class="search-input form-control" placeholder="Search"></input>
               </th>
             </tr>
@@ -78,12 +79,19 @@
     </div>
     <div id="itemform" class="form-style-8">
       <h2 id="additemtitle"> Add Your Item</h2>
-      <form>
+      <form id="additemForm">
         <input type="text" name="itemName" placeholder="Enter Item Name" required id="name"></input>
-        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity #" required></input>
-        <input type="date" name="expiryDate" id="dateto" placeholder="Expiry Date"></input>
-        <input id="submit" type="button" onclick="getItem()" value="Add Item"></input>
-        <input id="cancel" type="button" value="Cancel"></input>
+        <input class="col-md-6" type="number" name="quantity" id="quantity" placeholder="Enter Quantity" required></input>
+        <select id="unit" class="col-md-6">
+          <option value="">units</option>
+          <option value="g">grams</option>
+          <option value="kg">kilograms</option>
+          <option value="oz">ounces</option>
+          <option vlaue="lbs">pounds</option>
+        </select>
+        <input placeholder="Expiry Date" name="expiryDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateto">
+        <input id="submit" type="submit" onclick="getItem()" value="Add Item"></input>
+        <input id="cancel"  type="button" value="Cancel"></input>
       </form>
     </div>
     </br>
@@ -99,11 +107,11 @@
     $("#myFridge").hide();
 
 
-    $("#add").on("click", function() {
-      $("#itemform").show(1000);
-      $("#myFridge").hide(1000);
-      $("#showfridge").hide(1000)
-    })
+        $("#add").on("click", function() {
+          $("#itemform").show(1000);
+          $("#myFridge").hide();
+          $("#showfridge").hide()
+        })
 
     $("#showfridge").on("click",function(){
       $("#myFridge").show(1000);
@@ -117,18 +125,16 @@
       $("#showfridge").show(1000)
     })
 
-    $("#submit").on("click", function() {
-      $("#itemform").hide(1000);
-      $("#myFridge").show(1000);
-      $("#showfridge").show(1000)
-    })
 
     $("#editpencil").on("click", function() {
       $("#itemform").show(1000);
       $("#myFridge").hide(1000);
       $("#showfridge").hide(1000)
-
     })
+
+    $("#additemForm").submit(function(e) {
+    e.preventDefault();
+});
 
   </script>
 </body>

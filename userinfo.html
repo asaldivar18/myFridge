@@ -33,7 +33,7 @@
     <div class="visible-xs">
       <div id="menuToggle">
         <input type="checkbox" />
-        <a class="dropdown-toggle" type="button"data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+        <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
         <ul id="menu">
           <a href="index.html"><li>myFridge</li></a>
           <a href="profile.html"><li>Profile</li></a>
@@ -48,38 +48,24 @@
         <img class="hidden-xs" src="images/logo.png" alt="My Fridge" />
         <img class="visible-xs flake" src="images/flake.png" alt="My Fridge" />
 
-        <p>Food waste reduction application</p>
+        <div class="font-group signup">
 
+          <input type="text" class="inputs" placeholder="Username" id="username" /><br />
+          <input type="file" id="photo" class="inputs" />
 
+          <button id="loginbutton"  class="btn btn-default"><a  style="color:white; text-decoration:none;">Create account </a></button>
+          <div id="test">
 
-        <button class="btn" id="loginbutton">
-          <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;">Sign In with Email</a>
-        </button><br />
-
-        <button class="btn" id="myButton" onclick="toggleSignIn()" style="color:white;text-decoration: none;">Sign In with Google </button>
-      </section>
-      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-          <div class="loginmodal-container">
-            <h1>Login to Your Account</h1><br>
-              <form>
-              <input title="Please fill out this field" id="e1" type="email" name="email" placeholder="Email" required>
-              <input title="Please fill out this field" id="p1" type="password" name="pass" placeholder="Password" required>
-              <input id="s1" type="submit" name="login" class="login loginmodal-submit" value="Login">
-            <div class="login-help">
-              <a href="signup.html">Sign up</a> | <a id="p2" href"#">Forgot Password</a>
-                </form>
-            </div>
           </div>
         </div>
-      </div>
+      </section>
 
     </div>
   </section>
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
-  <script src="js/login.js"></script>
+  <script src="js/userinfo.js"></script>
 </body>
 
 </html>

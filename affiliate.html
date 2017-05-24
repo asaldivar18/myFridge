@@ -28,22 +28,32 @@
         <li><a href="affiliate.html">Affiliate Apps</a></li>
         <li class="signout">
           <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-sign-out fa-2x" onclick="toggleSignIn()" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
     </div>
-    
+
     <div class="visible-xs">
       <div id="menuToggle">
         <input type="checkbox" />
         <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-        <a class="signout" href="login.html"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+        <a class="signout" href="login.html">
+          <i class="fa fa-sign-out fa-2x" onclick="toggleSignIn()" aria-hidden="true"></i>
+        </a>
         <ul id="menu">
-          <a href="index.html"><li>myFridge</li></a>
-          <a href="profile.html"><li>Profile</li></a>
-          <a href="contact.html"><li>Contact</li></a>
-          <a href="affiliate.html"><li>Affiliate Apps</li></a>
+          <a href="index.html">
+            <li>myFridge</li>
+          </a>
+          <a href="profile.html">
+            <li>Profile</li>
+          </a>
+          <a href="contact.html">
+            <li>Contact</li>
+          </a>
+          <a href="affiliate.html">
+            <li>Affiliate Apps</li>
+          </a>
         </ul>
       </div>
     </div>
@@ -57,53 +67,109 @@
     <div class="container-fluid">
       <div class="container">
         <hr class="bighr" />
-        <div class="col-sm-12 text-center" id="section-two-city-title">
-          <img src="images/overcooked.png" id="overcooked" alt="overcooked" align="middle"></img>
+        <div class="col-sm-12 text-center hidden-xs">
+          <a href="http://overcooked.ca/">
+            <img src="images/overcooked.png" id="overcooked" alt="overcooked" align="middle"></img>
+          </a>
           <h1 class="font-light pt15">
             Reducing Waste In <span class="font-bold">Metro</span> Vancouver
           </h1>
-        </div>
-        <div class="col-sm-12 text-center">
-          <div class="col-sm-2 col-sm-offset-2">
-            <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
-            <hr class="hr-divider"> Helps the local economy
-          </div>
-          <div class="col-sm-2">
-            <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
-            <hr class="hr-divider"> Protects the environment
-          </div>
-          <div class="col-sm-2">
-            <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
-            <hr class="hr-divider"> Creates a better future
-          </div>
-          <div class="col-sm-2">
-            <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
-            <hr class="hr-divider"> Easily Give Away Food
-          </div>
-          <section class="container-fluid">
-            <hr class="bighr"/>
-            <div class="col-sm-12 text-center pb100" id="section-two-city-title">
-              <div class="col-sm-6">
-                <h1>Pheonix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
-                <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
-              </div>
-              <div class="col-sm-6 text-center">
-                </br>
-                </br>
-                <img class="col-sm-12" src="images/preservit.png" width="100%"></img>
-                <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
-              </div>
+          <div class="col-sm-12 text-center">
+            <div class="col-sm-2 col-sm-offset-2">
+              <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
+              <hr class="hr-divider"> Helps the local economy
             </div>
-          </section>
-          </br>
+            <div class="col-sm-2">
+              <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
+              <hr class="hr-divider"> Protects the environment
+            </div>
+            <div class="col-sm-2">
+              <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
+              <hr class="hr-divider"> Creates a better future
+            </div>
+            <div class="col-sm-2">
+              <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
+              <hr class="hr-divider"> Easily Give Away Food
+            </div>
+          </div>
         </div>
+        <div class="col-sm-12 text-center visible-xs">
+          <a href="http://overcooked.ca/">
+            <img src="images/overcooked.png" id="overcookedSM" alt="overcooked" align="middle"></img>
+          </a>
+          <h3 class="font-light pt15">
+            Reducing Waste In <span class="font-bold">Metro</span> Vancouver
+          </h3>
+          <div class="col-sm-12 text-center">
+            <div class="col-sm-2 col-sm-offset-2">
+              <hr class="hr-divider"> Helps the local economy
+              </br>
+              <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
+            </div>
+            <div class="col-sm-2">
+              <hr class="hr-divider"> Protects the environment
+              </br>
+              <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
+            </div>
+            <div class="col-sm-2">
+              <hr class="hr-divider"> Creates a better future
+              </br>
+              <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
+            </div>
+            <div class="col-sm-2">
+              <hr class="hr-divider"> Easily Give Away Food
+              </br>
+              <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
+            </div>
+          </div>
+        </div>
+
+        <section class="container-fluid hidden-xs">
+          <hr class="bighr" />
+          <div class="col-sm-12 text-center pb100" id="section-two-city-title">
+            <div class="col-sm-6">
+              <a href="http://www.phoenix-recipes.firebaseapp.com">
+                <h1>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
+              </a>
+              <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
+            </div>
+            <div class="col-sm-6 text-center">
+              </br>
+              </br>
+              <a href="http://preservit.ca/">
+                <img class="col-sm-12" src="images/preservit.png" style=" width: 100%; margin-bottom: 15px;"></img>
+              </a>
+              <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
+            </div>
+          </div>
+        </section>
+        <section class="container-fluid visible-xs">
+          <hr class="bighr" />
+          <div class="col-sm-12 text-center pb100">
+            <a href="https://phoenix-recipes.firebaseapp.com/">
+              <h3>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h3>
+            </a>
+            <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
+          </div>
+          <div class="col-sm-12 text-center pb100">
+            <a href="http://preservit.ca/">
+              <img class="col-sm-12" src="images/preservit.png" style=" width: 75%; margin-bottom: 15px;"></img>
+            </a>
+            <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
+          </div>
+        </section>
+        </br>
       </div>
+    </div>
     </div>
   </section>
 
   <footer>
     Copyright &copy; 2017 by myFridge. All Rights Reserved.
   </footer>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script src="js/affiliate.js"></script>
+
 </body>
 
 </html>
