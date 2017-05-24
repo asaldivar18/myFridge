@@ -43,6 +43,7 @@ function deleteItem(num) {
   deletebutton.addEventListener('click', function(event) {
     var itemName = document.getElementById("itemName" + num)
     var ref = firebase.database().ref('Fridge/'+user.uid+'/'+list[num-1])
+
     var r = confirm("Are you sure you want to remove " + itemName.innerHTML + "?");
 
     if (r == true){

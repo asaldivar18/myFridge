@@ -17,6 +17,7 @@
 
   <meta charset="utf-8" />
   <link rel="stylesheet" href="style/styles.css" />
+  <meta name="description" content="TODO"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/flake.png">
   <!-- Import and configure the Firebase SDK -->
@@ -107,9 +108,28 @@
       <h1 class="visible-xs title">myFridge</h1><br />
     </div>
 
+
+<div class="visible-xs">
+  <div id="menuToggle">
+    <input type="checkbox" />
+    <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+    <a class="signout" href="login.html"><i onclick="toggleSignIn()" class="fa fa-sign-out fa-3x" aria-hidden="true"></i></a>
+    <ul id="menu">
+      <a href="index.html"><li>myFridge</li></a>
+      <a href="profile.html"><li>Profile</li></a>
+      <a href="contact.html"><li>Contact</li></a>
+      <a href="affiliate.html"><li>Affiliate Apps</li></a>
+    </ul>
+  </div>
+</div>
+    <div id="header">
+    <h1 class="hidden-xs"><img class="logo" src="images/logo2.png" /></h1>
+    <h1 class="visible-xs title">myFridge</h1><br />
+  </div>
     <div id="myFridge" class="table-responsive">
       <button class="button btn-default colorscheme" id="showfridge" onclick="readUserData()" style="width:100%;"><h2 id="fridgeName">Open Fridge</h2></br><p>Add items to your fridge</p></button>
-      <table id="tablefridge" class="table">
+      <table id="tablefridge"class="table">
+
         <div class="col-xs-2">
           <thead>
             <tr>
@@ -141,6 +161,7 @@
           <option vlaue="lbs">pounds</option>
         </select>
 
+
         <input placeholder="Expiry Date" name="expiryDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateto">
         <input id="submit" type="submit" onclick="getItem()" value="Add Item"></input>
         <input id="cancel" type="button" value="Cancel"></input>
@@ -165,6 +186,7 @@
     $("#myFridge").hide();
 
 
+
     $("#add").on("click", function() {
       $("#itemform").show(1000);
       $("#myFridge").hide();
@@ -182,6 +204,7 @@
       $("#myFridge").show(1000);
       $("#showfridge").show(1000)
     })
+
 
         $("#cancel").on("click", function() {
             $("#itemform").hide(1000);

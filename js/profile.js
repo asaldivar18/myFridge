@@ -9,6 +9,7 @@ var config = {
 firebase.initializeApp(config);
 
 var username = document.getElementById("username");
+
 var password = document.getElementById("p1");
 var imgSrc = document.getElementById("img");
 
@@ -21,6 +22,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 
   if (firebaseUser) {
+
 
     if (firebaseUser.photoURL) {
       profilepic.src = firebaseUser.photoURL;
@@ -44,12 +46,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       } else if(scoreuser >70){
         $("#rank").text("Food Grand Master (GM)")
       }
+
       $("#score").text("Food Score: " + scoreuser)
 
     })
 
-	
-	
     var ref = firebase.database().ref('Fridge/' + firebaseUser.uid).orderByChild("health");
     ref.on("value", function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
@@ -83,6 +84,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     submitbtn.addEventListener('click', e => {
       var newuser = document.getElementById("newuser");
+
       var newuserVal = newuser.value;
 
       var storageRef = firebase.storage().ref(firebaseUser.uid + '/profilepic/'+photo.name)
@@ -106,7 +108,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     window.location.href="login.html"
   }
 });
-
 
 function readURL(input) {
   var url = input.value;
