@@ -8,16 +8,18 @@ var config = {
 };
 firebase.initializeApp(config);
 
+const submitbtn = document.getElementById("submitnew");
+const editbtn = document.getElementById("editbtn");
+
 var username = document.getElementById("username");
-var usernameVal = username.innerHTML;
-var submitbtn = document.getElementById("submitnew");
-var editbtn = document.getElementById("editbtn");
-var profilepic = document.getElementById("profilepic");
+var password = document.getElementById("p1");
+var imgSrc = document.getElementById("img");
+
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
     if(firebaseUser.photoURL){
-      profilepic.src = firebaseUser.photoURL;
+      imgSrc.src = firebaseUser.photoURL;
     }
     console.log(firebaseUser);
     username.innerHTML = firebaseUser.displayName;
@@ -30,42 +32,25 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     submitbtn.addEventListener('click', e => {
       var newuser = document.getElementById("newuser");
-      var photo = document.getElementById('camera');
       var newuserVal = newuser.value;
+      var photo = document.getElementById("camera") ;
       if(newuserVal){
       firebaseUser.updateProfile({
-        displayName: newuserVal
+        displayName: newuserVal,
+        photoURL: photo.value
       });
-    }
-    if(photo.value){
+    } if(photo.value){
       firebaseUser.updateProfile({
         photoURL:photo.value
       });
-    }else{
-      alert('no picture here');
     }
       username.innerHTML = firebaseUser.displayName;
     });
+
   } else {
     console.log("not logged in");
   }
 });
-
-function readURL(input) {
-var url = input.value;
-var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-        $('#img').attr('src', e.target.result);
-    }
-    reader.readAsDataURL(input.files[0]);
-}
-else{
-     $('#img').attr('src', '/assets/no_preview.png');
-  }
-}
 
 function toggleSignIn() {
   if (!firebase.auth().currentUser) {
