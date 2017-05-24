@@ -82,7 +82,10 @@ body {
 .editform {
   margin-top: 20px;
 }
-
+.fb{
+  display: block;
+  text-align: center;
+}
 #editbutton {
   background-color: #2b777e;
   margin: auto;
@@ -197,12 +200,12 @@ h1 {
 
 footer {
   width: 100%;
-  height: 5%;
+  height: 8%;
   bottom: 0;
   position: fixed;
   text-align: center;
   color: white;
-  background-color: #2B777E;
+  background-color: #2B7777;
 }
 #additemtitle{
   color: white;
