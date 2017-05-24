@@ -61,6 +61,7 @@
               <a href="#" data-toggle="modal" data-target="#login-modal" style="color:white;text-decoration: none;"><i class="fa fa-pencil fa-md" id="editbtn" aria-hidden="true"></i></a>
             </button>
       <h3 id="rank"></h3>
+      <h4 class="text-center" id="score"></h4>
       <div class="progress">
         <div class="progress-bar progress-bar-striped active" id="pbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
         </div>
@@ -75,8 +76,8 @@
           <div class="loginmodal-container">
             <h1>Edit Account Details</h1><br>
             <form>
-              <p class="editform">Change username</p>
-              <input type="text" id="newuser" name="user" placeholder="Change username" required>
+              <p class="editform">Change Display Name</p>
+              <input type="text" id="newuser" name="user" placeholder="Change Display Name" required>
               <p class="editform">Reset password</p>
               <input id="p1" type="password" name="pass" placeholder="Password">
               <input id="p1" type="password" name="pass" placeholder="Confirm Password">
@@ -94,14 +95,18 @@
     </div>
 
     <div id="feed" class="col-md-7" >
-      <h3 id="feedtitle">Feed</h3>
+      <h2 id="feedtitle">Feed</h2>
       <div id="feedcontent">
-        <ul>
-          <li>
-            Oranges
-          </li>
-          <br />
+      <section id="currentFridge">
+        <h3>Currently In Fridge</h3>
+        <ul id="feedList">
         </ul>
+      </section>
+      <section id="fridgeHistory">
+        <h3>Item History</h3>
+        <ul id="historyList">
+        </ul>
+      </section>
       </div>
     </div>
   </section>

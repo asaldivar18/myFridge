@@ -416,6 +416,10 @@ footer {
 #myButton:hover{
   background-color: #A9A9A9;
 }
+
+#header,#showcaselogin{
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
