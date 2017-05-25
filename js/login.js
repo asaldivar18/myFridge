@@ -17,9 +17,8 @@ submit.addEventListener('click', e => {
   const email2 = txtemail.value;
   const pwd = txtpwd.value
   const auth = firebase.auth();
-  const promise = auth.signInWithEmailAndPassword(email2, pwd).catch(function(error) {
-      alert("You have entered an invalid email/password!");
-})});
+  const promise = auth.signInWithEmailAndPassword(email2, pwd);
+});
 
 resetpwd.addEventListener('click', e => {
   const email2 = txtemail.value;
@@ -36,11 +35,11 @@ resetpwd.addEventListener('click', e => {
 firebase.auth().onAuthStateChanged(firebaseUser =>{
   if(firebaseUser){
     console.log(firebaseUser);
-    window.location.href = "index.html";
+    window.location.href = "profile.html";
   }else{
   console.log("not logged in");
   }
-  });
+});
 
 
 /**
