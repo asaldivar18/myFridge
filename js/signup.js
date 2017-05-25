@@ -26,7 +26,8 @@ signupbtn.addEventListener('click', e => {
 firebase.auth().onAuthStateChanged(firebaseUser =>{
   if(firebaseUser){
     console.log(firebaseUser);
-    window.location.href = "profile.html";
+    window.location.href = "index.html";
+
   }else{
   console.log("not logged in");
   }

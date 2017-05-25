@@ -9,6 +9,10 @@ var config = {
 firebase.initializeApp(config);
 
 var username = document.getElementById("username");
+
+var password = document.getElementById("p1");
+var imgSrc = document.getElementById("img");
+
 var submitbtn = document.getElementById("submitnew");
 var editbtn = document.getElementById("editbtn");
 var profilepic = document.getElementById("profilepic");
@@ -18,8 +22,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 
   if (firebaseUser) {
+
+
     if (firebaseUser.photoURL) {
       profilepic.src = firebaseUser.photoURL;
+      console.log(firebaseUser.photoURL);
+      console.log(profilepic.src);
     }
     ref2 = firebase.database().ref('Fridge/score/' + firebaseUser.uid)
     ref2.once('value', function(childSnapshot) {
@@ -38,7 +46,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       } else if(scoreuser >70){
         $("#rank").text("Food Grand Master (GM)")
       }
-      $("#score").text("Food Score: " + scoreuser + "!")
+
+      $("#score").text("Food Score: " + scoreuser)
 
     })
 
@@ -75,8 +84,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     submitbtn.addEventListener('click', e => {
       var newuser = document.getElementById("newuser");
-      var photo = document.getElementById('camera');
+
       var newuserVal = newuser.value;
+
+      var storageRef = firebase.storage().ref(firebaseUser.uid + '/profilepic/'+photo.name)
+
       if (newuserVal) {
         firebaseUser.updateProfile({
           displayName: newuserVal
@@ -89,9 +101,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       }
       username.innerHTML = firebaseUser.displayName;
 
-
-
     });
+
   } else {
     console.log("not logged in");
     window.location.href="login.html"
