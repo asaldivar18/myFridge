@@ -43,7 +43,9 @@ function deleteItem(num) {
   deletebutton.addEventListener('click', function(event) {
     var itemName = document.getElementById("itemName" + num)
     var ref = firebase.database().ref('Fridge/'+user.uid+'/'+list[num-1])
-    var r = confirm("Are you sure you want to remove " + itemName + "?");
+
+    var r = confirm("Are you sure you want to remove " + itemName.innerHTML + "?");
+
     if (r == true){
       ref.update({
         removed:true
@@ -142,8 +144,8 @@ function readUserData() {
   }
   var user = firebase.auth().currentUser;
   var itemNo = 1;
-  var cmp = "name" //document.getElementById("DANIELTODO").value
-  var ref = firebase.database().ref('Fridge/' + user.uid).orderByChild("health");
+  var cmp = document.getElementById("orderby").value
+  var ref = firebase.database().ref('Fridge/' + user.uid).orderByChild(cmp);
   ref.on("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
@@ -153,7 +155,7 @@ function readUserData() {
         tr.id = "itemNo" + itemNo;
         var html = "<td id=\"itemName" + itemNo + "\">" + childData.name + "</td><td id=\"" + itemNo + "\">" + childData.quantity + " " + childData.type
         html +=  "</td><td><div id=\"itemDate" + itemNo+ "\" class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"100\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">" + childData.health
-        html += "</div>/div></td><div class=\"remove\"><td id=\"buttons"+itemNo+"\"align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil" + itemNo
+        html += "</div>/div></td><td id=\"buttons"+itemNo+"\"align=\"right\"><a><i class=\"fa fa-pencil fa-2x\" id=\"editpencil" + itemNo
         html += "\" aria-hidden=\"true\"> |</i><i id=\"delete" + itemNo + "\"class=\"fa fa-times  fa-2x\" aria-hidden=\"true\"></i></a></td></div>"
         tr.innerHTML = html;
         document.getElementById("itembody").appendChild(tr);
@@ -269,3 +271,24 @@ function initApp() {
 window.onload = function() {
   initApp();
 };
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
