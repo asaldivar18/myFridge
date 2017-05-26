@@ -2,173 +2,214 @@
 <html lang="en">
 
 <head>
-  <title>Affiliate Applications</title>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="style/styles.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Import and configure the Firebase SDK -->
-  <!-- These scripts are made available when the app is served or deployed on Firebase Hosting
+    <title>Affiliate Applications</title>
+    <meta charset="utf-8" />
+    <meta property="og:description" content="myFridge keeps track of your fridge and the expiration dates of your food.">
+    <meta property="og:url" content="https://myfridge-ff976.firebaseapp.com/">
+    <meta property="og:title" content="myFridge: Expiration tracking made simple.">
+    <meta property="og:site_name" content="myFridge">
+    <meta property="og:image" content="https://myfridge-ff976.firebaseapp.com/images/logofb.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import and configure the Firebase SDK -->
+    <!-- These scripts are made available when the app is served or deployed on Firebase Hosting
 <script src="/__/firebase/3.9.0/firebase-app.js"></script>
 <script src="/__/firebase/3.9.0/firebase-auth.js"></script>
 <script src="/__/firebase/init.js"></script>-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link href="style\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" rel="stylesheet" />
 </head>
 
 <body style="background-color: rgba(236, 236, 234, 0.5);">
-  <section class="container">
-    <div class="hidden-xs">
-      <ul>
-        <li><a href="index.html">myFridge</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="affiliate.html">Affiliate Apps</a></li>
-        <li class="signout">
-          <a href="login.html">
-            <i class="fa fa-sign-out fa-2x" onclick="toggleSignIn()" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
 
-    <div class="visible-xs">
-      <div id="menuToggle">
-        <input type="checkbox" />
-        <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-        <a class="signout" href="login.html">
-          <i class="fa fa-sign-out fa-2x" onclick="toggleSignIn()" aria-hidden="true"></i>
-        </a>
-        <ul id="menu">
-          <a href="index.html">
-            <li>myFridge</li>
-          </a>
-          <a href="profile.html">
-            <li>Profile</li>
-          </a>
-          <a href="contact.html">
-            <li>Contact</li>
-          </a>
-          <a href="affiliate.html">
-            <li>Affiliate Apps</li>
-          </a>
-        </ul>
-      </div>
-    </div>
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
 
-    <h1>Our Affiliates</h1>
-    <div class="intro">
-      <p>
-        These complimentary apps can be partnered with myFridge to give our users a better experience.
-      </p>
-    </div>
-    <div class="container-fluid">
-      <div class="container">
-        <hr class="bighr" />
-        <div class="col-sm-12 text-center hidden-xs">
-          <a href="http://overcooked.ca/">
-            <img src="images/overcooked.png" id="overcooked" alt="overcooked" align="middle"></img>
-          </a>
-          <h1 class="font-light pt15">
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <section class="container">
+        <div class="hidden-xs">
+            <ul>
+                <li><a href="index.html">myFridge</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="affiliate.html">Affiliate Apps</a></li>
+                <li class="signout">
+                    <a href="login.html">
+                        <i class="fa fa-sign-out fa-2x" onclick="toggleSignIn()" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="visible-xs">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+                <a class="signout" href="login.html">
+                    <i class="fa fa-sign-out fa-2x" onclick="toggleSignIn()" aria-hidden="true"></i>
+                </a>
+                <ul id="menu">
+                    <a href="index.html">
+                        <li>myFridge</li>
+                    </a>
+                    <a href="profile.html">
+                        <li>Profile</li>
+                    </a>
+                    <a href="contact.html">
+                        <li>Contact</li>
+                    </a>
+                    <a href="affiliate.html">
+                        <li>Affiliate Apps</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <h1>Our Affiliates</h1>
+        <div class="intro">
+            <p>
+                These complimentary apps can be partnered with myFridge to give our users a better experience.
+            </p>
+        </div>
+        <div class="container-fluid">
+            <div class="container">
+                <hr class="bighr" />
+                <div class="col-sm-12 text-center hidden-xs">
+                    <a href="http://overcooked.ca/">
+                        <img src="images/overcooked.png" id="overcooked" alt="overcooked" align="middle"></img>
+                    </a>
+                    <h1 class="font-light pt15">
             Reducing Waste In <span class="font-bold">Metro</span> Vancouver
           </h1>
-          <div class="col-sm-12 text-center">
-            <div class="col-sm-2 col-sm-offset-2">
-              <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
-              <hr class="hr-divider"> Helps the local economy
-            </div>
-            <div class="col-sm-2">
-              <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
-              <hr class="hr-divider"> Protects the environment
-            </div>
-            <div class="col-sm-2">
-              <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
-              <hr class="hr-divider"> Creates a better future
-            </div>
-            <div class="col-sm-2">
-              <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
-              <hr class="hr-divider"> Easily Give Away Food
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 text-center visible-xs">
-          <a href="http://overcooked.ca/">
-            <img src="images/overcooked.png" id="overcookedSM" alt="overcooked" align="middle"></img>
-          </a>
-          <h3 class="font-light pt15">
+                    <div class="col-sm-12 text-center">
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
+                            <hr class="hr-divider"> Helps the local economy
+                        </div>
+                        <div class="col-sm-2">
+                            <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
+                            <hr class="hr-divider"> Protects the environment
+                        </div>
+                        <div class="col-sm-2">
+                            <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
+                            <hr class="hr-divider"> Creates a better future
+                        </div>
+                        <div class="col-sm-2">
+                            <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
+                            <hr class="hr-divider"> Easily Give Away Food
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center visible-xs">
+                    <a href="http://overcooked.ca/">
+                        <img src="images/overcooked.png" id="overcookedSM" alt="overcooked" align="middle"></img>
+                    </a>
+                    <h3 class="font-light pt15">
             Reducing Waste In <span class="font-bold">Metro</span> Vancouver
           </h3>
-          <div class="col-sm-12 text-center">
-            <div class="col-sm-2 col-sm-offset-2">
-              <hr class="hr-divider"> Helps the local economy
-              </br>
-              <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
+                    <div class="col-sm-12 text-center">
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <hr class="hr-divider"> Helps the local economy
+                            </br>
+                            <img src="https://overcooked.ca/public/assets/icons/money.svg" alt=""><br>
+                        </div>
+                        <div class="col-sm-2">
+                            <hr class="hr-divider"> Protects the environment
+                            </br>
+                            <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
+                        </div>
+                        <div class="col-sm-2">
+                            <hr class="hr-divider"> Creates a better future
+                            </br>
+                            <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
+                        </div>
+                        <div class="col-sm-2">
+                            <hr class="hr-divider"> Easily Give Away Food
+                            </br>
+                            <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <section class="container-fluid hidden-xs">
+                    <hr class="bighr" />
+                    <div class="col-sm-12 text-center pb100" id="section-two-city-title">
+                        <div class="col-sm-6">
+                            <a href="http://phoenix-recipes.firebaseapp.com">
+                                <h1>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
+                            </a>
+                            <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            </br>
+                            </br>
+                            <a href="http://preservit.ca/">
+                                <img class="col-sm-12" src="images/preservit.png" style=" width: 100%; margin-bottom: 15px;"></img>
+                            </a>
+                            <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="container-fluid visible-xs">
+                    <hr class="bighr" />
+                    <div class="col-sm-12 text-center pb100">
+                        <a href="https://phoenix-recipes.firebaseapp.com/">
+                            <h3>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h3>
+                        </a>
+                        <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
+                    </div>
+                    <div class="col-sm-12 text-center pb100">
+                        <a href="http://preservit.ca/">
+                            <img class="col-sm-12" src="images/preservit.png" style=" width: 75%; margin-bottom: 15px;"></img>
+                        </a>
+                        <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
+                    </div>
+                </section>
+                </br>
             </div>
-            <div class="col-sm-2">
-              <hr class="hr-divider"> Protects the environment
-              </br>
-              <img src="https://overcooked.ca/public/assets/icons/lock.svg" alt="">
-            </div>
-            <div class="col-sm-2">
-              <hr class="hr-divider"> Creates a better future
-              </br>
-              <img src="https://overcooked.ca/public/assets/icons/lego.svg" alt="">
-            </div>
-            <div class="col-sm-2">
-              <hr class="hr-divider"> Easily Give Away Food
-              </br>
-              <img src="https://overcooked.ca/public/assets/icons/checks.svg" alt="">
-            </div>
-          </div>
         </div>
+        </div>
+    </section>
 
-        <section class="container-fluid hidden-xs">
-          <hr class="bighr" />
-          <div class="col-sm-12 text-center pb100" id="section-two-city-title">
-            <div class="col-sm-6">
-              <a href="#">
-                <h1>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
-              </a>
-              <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
+    <footer>
+        Copyright &copy; 2017 by myFridge. All Rights Reserved.
+        <div class="fb">
+            <div class="fb-share-button" data-href="https://myfridge-ff976.firebaseapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+                <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmyfridge-ff976.firebaseapp.com%2F&amp;src=sdkpreparse"></a>
             </div>
-            <div class="col-sm-6 text-center">
-              </br>
-              </br>
-              <a href="http://preservit.ca/">
-                <img class="col-sm-12" src="images/preservit.png" style=" width: 100%; margin-bottom: 15px;"></img>
-              </a>
-              <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
-            </div>
-          </div>
-        </section>
-        <section class="container-fluid visible-xs">
-          <hr class="bighr" />
-          <div class="col-sm-12 text-center pb100">
-            <a href="#">
-              <h3>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h3>
-            </a>
-            <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
-          </div>
-          <div class="col-sm-12 text-center pb100">
-            <a href="http://preservit.ca/">
-              <img class="col-sm-12" src="images/preservit.png" style=" width: 75%; margin-bottom: 15px;"></img>
-            </a>
-            <p>Displays a list of foods and helps you preserve and identify food quality. Also, helps you identify if it is going bad and how to save it.</p>
-          </div>
-        </section>
-        </br>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <footer>
-    Copyright &copy; 2017 by myFridge. All Rights Reserved.
-  </footer>
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <script src="js/affiliate.js"></script>
+            <a class="twitter-share-button" data-hashtags="myFridge" href="https://twitter.com/intent/tweet?text=I%27m+using+myFridge+to+keep+track+of+all+my+expiration+dates"></a>
+            <g:plusone></g:plusone>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="js/affiliate.js"></script>
 
 </body>
 
