@@ -126,8 +126,10 @@ function toggleSignIn() {
 }
 
 clearFeed.addEventListener('click', e => {
+  var user = firebase.auth().currentUser;
   var lis = document.querySelectorAll('#historyList li');
   for(var i=0; li=lis[i]; i++) {
       li.parentNode.removeChild(li);
   }
+
 })

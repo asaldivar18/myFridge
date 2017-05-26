@@ -87,10 +87,10 @@ function deleteItem(num) {
         removeChild(expiry_DOM)
         removeChild(buttons_DOM)
 
-        name_DOM.innerHTML = "<input type=\"text\" name=\"itemName\"value=\"" + itemName + "\"  placeholder=\"" + itemName + "\" required id=\"newName\"></input>";
-        quantity_DOM.innerHTML = "<input type=\"number\" name=\"itemName\" value=\"" + parseInt(quantity) + "\"placeholder=\"" + quantity + "\" required id=\"newQuantity\"></input>";
-        expiry_DOM.innerHTML = "<input placeholder=\"" + expiryDate + "\" value=\"" + expiryDate + "\" name=\"expiryDate\" type=\"text\" onfocus=\"(this.type='date\')\" onblur=\"(this.type='text\')\" id=\"newDateto\">"
-        buttons_DOM.innerHTML = "<input id=\"edit" + num + "\" type=\"button\"  value=\"Confirm\"></input>"
+        name_DOM.innerHTML = "<input class=\"editfield\"type=\"text\" name=\"itemName\"value=\"" + itemName + "\"  placeholder=\"" + itemName + "\" required id=\"newName\"></input>";
+        quantity_DOM.innerHTML = "<input class=\"editfield\" type=\"number\" name=\"itemName\" value=\"" + parseInt(quantity) + "\"placeholder=\"" + quantity + "\" required id=\"newQuantity\"></input>";
+        expiry_DOM.innerHTML = "<input  placeholder=\"" + expiryDate + "\" value=\"" + expiryDate + "\" name=\"expiryDate\" type=\"date\">"
+        buttons_DOM.innerHTML = "<input class=\"btn btn-default\" id=\"edit" + num + "\" type=\"button\"  value=\"Confirm\"></input>"
 
         document.getElementById("edit" + num).addEventListener('click', function(event) {
             var user = firebase.auth().currentUser;

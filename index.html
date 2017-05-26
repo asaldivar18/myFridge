@@ -124,12 +124,12 @@
       </table>
       <a><i id="add" class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
     </div>
-    <div id="itemform" class="form-style-8">
+    <div id="itemform" class="form-style-8 col-xs-12">
       <h2 id="additemtitle"> Add Your Item</h2>
       <form id="additemForm">
         <input type="text" name="itemName" placeholder="Enter Item Name" required id="name"></input>
-        <input class="col-md-6" type="number" name="quantity" id="quantity" placeholder="Enter Quantity" required></input>
-        <select id="unit" class="col-md-6">
+        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" required></input>
+        <select id="unit">
           <option value="">units</option>
           <option value="g">grams</option>
           <option value="kg">kilograms</option>
@@ -138,7 +138,7 @@
         </select>
 
 
-        <input placeholder="Expiry Date" name="expiryDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateto">
+        <input placeholder="Expiry Date" name="expiryDate" type="date" id="dateto"></input>
         <input id="submit" type="submit" onclick="getItem()" value="Add Item"></input>
         <input id="cancel" type="button" value="Cancel"></input>
       </form>

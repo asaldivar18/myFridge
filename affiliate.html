@@ -4,6 +4,12 @@
 <head>
     <title>Affiliate Applications</title>
     <meta charset="utf-8" />
+    <meta property="og:description" content="myFridge keeps track of your fridge and the expiration dates of your food.">
+    <meta property="og:url" content="https://myfridge-ff976.firebaseapp.com/">
+    <meta property="og:title" content="myFridge: Expiration tracking made simple.">
+    <meta property="og:site_name" content="myFridge">
+    <meta property="og:image" content="https://myfridge-ff976.firebaseapp.com/images/logofb.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Import and configure the Firebase SDK -->
@@ -19,6 +25,35 @@
 </head>
 
 <body style="background-color: rgba(236, 236, 234, 0.5);">
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <section class="container">
         <div class="hidden-xs">
             <ul>
@@ -128,7 +163,7 @@
                     <hr class="bighr" />
                     <div class="col-sm-12 text-center pb100" id="section-two-city-title">
                         <div class="col-sm-6">
-                            <a href="http://www.phoenix-recipes.firebaseapp.com">
+                            <a href="http://phoenix-recipes.firebaseapp.com">
                                 <h1>Phoenix Recipes<img src="images/pheonix.png" alt="" width="100"></img></h1>
                             </a>
                             <p>A user friendly mobile cookbook that helps you discover new and delicious ways to use your leftovers, and track your food waste</p>
