@@ -98,16 +98,16 @@
         <h1 class="title">Contact</h1><br />
         </table>
 
-        <form action="mailto:info@myfridge.com" class="visible-xs" method="post" enctype="text/plain">
-            <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" />
-            <input class="input_field" name="Email" type="text" maxlength="50" placeholder="E-mail" />
-            <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments"></textarea>
+        <form action="mailto:info@myfridge.com?subject=myFridge Support" class="visible-xs" method="post" enctype="text/plain">
+            <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" required/>
+            <input class="input_field" name="Email" type="email" maxlength="50" placeholder="E-mail" required />
+            <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments" required></textarea>
             <input class="btn submitform" type="submit" style="color:white;text-decoration: none;" value="Submit" />
         </form>
-        <form action="mailto:info@myfridge.com" class="form1 hidden-xs" method="post" enctype="text/plain">
-            <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" />
-            <input class="input_field" name="Email" type="text" maxlength="50" placeholder="E-mail" />
-            <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments"></textarea>
+        <form action="mailto:info@myfridge.com?subject=myFridge Support" class="form1 hidden-xs" method="post" enctype="text/plain">
+            <input class="input_field" name="Name" type="text" maxlength="25" placeholder="Name" required />
+            <input class="input_field" name="Email" type="email" maxlength="50" placeholder="E-mail" required  />
+            <textarea class="input_field" name="Comment" rows="10" cols="25" placeholder="Comments" required></textarea>
             <input class="btn submitform" type="submit" style="color:white;text-decoration: none;margin-top:-15px;" value="Submit" />
         </form>
     </section>

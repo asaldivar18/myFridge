@@ -72,9 +72,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
         submitbtn.addEventListener('click', e => {
             var newuser = document.getElementById("newuser");
-            var photo = document.getElementById('camera');
             var newuserVal = newuser.value;
-            var storageRef = firebase.storage().ref(firebaseUser.uid + '/profilepic/' + photo.name)
 
 
             if (newuserVal) {
@@ -82,12 +80,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     displayName: newuserVal
                 });
             }
-            if (photo.value) {
-                var task = storageRef.put(photo.value)
-                firebaseUser.updateProfile({
-                    photoURL: photo.value
-                });
-            }
+
             username.innerHTML = firebaseUser.displayName;
 
 
